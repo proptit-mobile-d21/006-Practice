@@ -22,14 +22,17 @@ class Menu {
         println("\t c. Danh sách dịch vụ")
         when(readlnOrNull()) {
             "a" -> {
+                println("-----Danh sach khach hang-----")
                 Manager.printListClient()
                 sortClient()
             }
             "b" -> {
+                println("-----Danh sach phong-----")
                 Manager.printListRoom()
                 sortRoom()
             }
             "c" -> {
+                println("-----Danh sach dich vu-----")
                 Manager.printListService()
                 sortService()
             }

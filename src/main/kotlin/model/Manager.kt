@@ -21,23 +21,19 @@ object Manager {
         listRoom = AllDataForExam.roomList.toMutableList()
         listService = AllDataForExam.serviceList.toMutableList()
     }
-    fun printListClient() {
-        println("Danh sách khách hàng")
-        listClient.forEach {
+    private fun <T> printList(list : MutableList<T>){
+        list.forEach {
             println(it)
         }
+    }
+    fun printListClient() {
+        printList(listClient)
     }
     fun printListRoom() {
-        println("Danh sách phòng")
-        listRoom.forEach {
-            println(it)
-        }
+        printList(listRoom)
     }
      fun printListService() {
-        println("Danh sách dịch vụ")
-        listService.forEach {
-            println(it)
-        }
+        printList(listService)
     }
 
     fun sortClient(sort: ClientSort){
