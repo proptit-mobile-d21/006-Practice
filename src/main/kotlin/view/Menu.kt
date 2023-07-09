@@ -34,7 +34,7 @@ class Menu {
             "c" -> {
                 println("-----Danh sach dich vu-----")
                 Manager.printListService()
-                sortService()
+               sortService()
             }
             else -> println("Nhập sai")
         }
@@ -42,11 +42,11 @@ class Menu {
     private fun sortClient(){
         println("Sắp xếp danh sách theo: \t1.ID\t2.Name\t3.Address\t4.Phone\t5.Email")
         when(readlnOrNull()){
-            "1" -> Manager.sortClient(Manager.ClientSort.ID_CARD)
-            "2" -> Manager.sortClient(Manager.ClientSort.NAME)
-            "3" -> Manager.sortClient(Manager.ClientSort.ADDRESS)
-            "4" -> Manager.sortClient(Manager.ClientSort.PHONE_NUMBER)
-            "5" -> Manager.sortClient(Manager.ClientSort.EMAIL)
+            "1" -> Manager.sortClient(Manager.SortField.ID)
+            "2" -> Manager.sortClient(Manager.SortField.NAME)
+            "3" -> Manager.sortClient(Manager.SortField.ADDRESS)
+            "4" -> Manager.sortClient(Manager.SortField.PHONE_NUMBER)
+            "5" -> Manager.sortClient(Manager.SortField.EMAIL)
             else -> println("Nhập sai")
         }
         Manager.printListClient()
@@ -54,21 +54,23 @@ class Menu {
     private fun sortRoom(){
         println("Sắp xếp danh sách theo: \t1.ID\t2.Room Type\t3.Price\t4.Room Number")
         when(readlnOrNull()){
-            "1" -> Manager.sortRoom(Manager.RoomSort.ID)
-            "2" -> Manager.sortRoom(Manager.RoomSort.ROOM_TYPE)
-            "3" -> Manager.sortRoom(Manager.RoomSort.PRICE)
-            "4" -> Manager.sortRoom(Manager.RoomSort.ROOM_NUMBER)
+            "1" -> Manager.sortRoom(Manager.SortField.ID)
+            "2" -> Manager.sortRoom(Manager.SortField.TYPE)
+            "3" -> Manager.sortRoom(Manager.SortField.PRICE)
+            "4" -> Manager.sortRoom(Manager.SortField.ROOM_NUMBER)
             else -> println("Nhập sai")
         }
+        Manager.printListRoom()
     }
     private fun sortService(){
         println("Sắp xếp danh sách theo: \t1.ID\t2.Name\t3.Price")
         when(readlnOrNull()){
-            "1" -> Manager.sortService(Manager.ServiceSort.ID)
-            "2" -> Manager.sortService(Manager.ServiceSort.NAME)
-            "3" -> Manager.sortService(Manager.ServiceSort.PRICE)
+            "1" -> Manager.sortService(Manager.SortField.ID)
+            "2" -> Manager.sortService(Manager.SortField.NAME)
+            "3" -> Manager.sortService(Manager.SortField.PRICE)
             else -> println("Nhập sai")
         }
+        Manager.printListService()
     }
     fun run() {
         while (true) {
