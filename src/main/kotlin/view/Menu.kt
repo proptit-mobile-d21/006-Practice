@@ -101,14 +101,14 @@ class Menu {
         println("Tìm kiếm theo: \t1.ID\t2.Name\t3.Address\t4.Phone\t5.Email")
         var choice = scanner.next()
         println("Nhập dữ liệu cần tìm: ")
-        var data = scanner.next()
+        var data = readlnOrNull()
         var listID = listOf<String>()
         when(choice){
-            "1" -> listID = Manager.searchClient(Manager.SortField.ID, data)
-            "2" -> listID = Manager.searchClient(Manager.SortField.NAME, data)
-            "3" -> listID = Manager.searchClient(Manager.SortField.ADDRESS, data)
-            "4" -> listID = Manager.searchClient(Manager.SortField.PHONE_NUMBER, data)
-            "5" -> listID = Manager.searchClient(Manager.SortField.EMAIL, data)
+            "1" -> listID = data?.let { Manager.searchClient(Manager.SortField.ID, it) } ?: listOf()
+            "2" -> listID = data?.let { Manager.searchClient(Manager.SortField.NAME, it) } ?: listOf()
+            "3" -> listID = data?.let { Manager.searchClient(Manager.SortField.ADDRESS, it) } ?: listOf()
+            "4" -> listID = data?.let { Manager.searchClient(Manager.SortField.PHONE_NUMBER, it) } ?: listOf()
+            "5" -> listID = data?.let { Manager.searchClient(Manager.SortField.EMAIL, it) } ?: listOf()
             else -> println("Nhập sai")
         }
         println(listID)
@@ -121,22 +121,22 @@ class Menu {
                 "1" -> {
                     println("Nhập tên mới: ")
                     data = readlnOrNull()
-                    Manager.editClient(id, data, Manager.SortField.NAME)
+                    data?.let { Manager.editClient(id, it, Manager.SortField.NAME) }
                 }
                 "2" -> {
                     println("Nhập địa chỉ mới")
                     data = readlnOrNull()
-                    Manager.editClient(id, data, Manager.SortField.ADDRESS)
+                    data?.let { Manager.editClient(id, it, Manager.SortField.ADDRESS) }
                 }
                 "3" -> {
                     println("Nhập điện thoại mới")
                     data = readlnOrNull()
-                    Manager.editClient(id, data, Manager.SortField.PHONE_NUMBER)
+                    data?.let { Manager.editClient(id, it, Manager.SortField.PHONE_NUMBER) }
                 }
                 "4" -> {
                     println("Nhập email mới")
                     data = readlnOrNull()
-                    Manager.editClient(id, data, Manager.SortField.EMAIL)
+                    data?.let { Manager.editClient(id, it, Manager.SortField.EMAIL) }
                 }
             }
         }
@@ -149,13 +149,13 @@ class Menu {
         println("Tìm kiếm theo: \t1.ID\t2.Room Type\t3.Price\t4.Room Number")
         var choice = scanner.next()
         println("Nhập dữ liệu cần tìm: ")
-        var data = scanner.next()
+        var data = readlnOrNull()
         var listID = listOf<Int>()
         when(choice){
-            "1" -> listID = Manager.searchRoom(Manager.SortField.ID, data)
-            "2" -> listID = Manager.searchRoom(Manager.SortField.TYPE, data)
-            "3" -> listID = Manager.searchRoom(Manager.SortField.PRICE, data)
-            "4" -> listID = Manager.searchRoom(Manager.SortField.ROOM_NUMBER, data)
+            "1" -> listID = data?.let { Manager.searchRoom(Manager.SortField.ID, it) } ?: listOf()
+            "2" -> listID = data?.let { Manager.searchRoom(Manager.SortField.TYPE, it) } ?: listOf()
+            "3" -> listID = data?.let { Manager.searchRoom(Manager.SortField.PRICE, it) } ?: listOf()
+            "4" -> listID = data?.let { Manager.searchRoom(Manager.SortField.ROOM_NUMBER, it) } ?: listOf()
             else -> println("Nhập sai")
         }
         println(listID)
@@ -171,22 +171,22 @@ class Menu {
                             "\tDOUBLE_ROOM,\n" +
                             "\tVIP_ROOM ")
                     data = readlnOrNull()
-                    Manager.editRoom(id, data, Manager.SortField.TYPE)
+                    data?.let { Manager.editRoom(id, it, Manager.SortField.TYPE) }
                 }
                 "2" -> {
                     println("Nhập giá mới: ")
                     data = readlnOrNull()
-                    Manager.editRoom(id, data, Manager.SortField.PRICE)
+                    data?.let { Manager.editRoom(id, it, Manager.SortField.PRICE) }
                 }
                 "3" -> {
                     println("Nhập số phòng mới")
                     data = readlnOrNull()
-                    Manager.editRoom(id, data, Manager.SortField.ROOM_NUMBER)
+                    data?.let { Manager.editRoom(id, it, Manager.SortField.ROOM_NUMBER) }
                 }
                 "4" -> {
                     println("Nhập ghi chú cho phòng")
                     data = readlnOrNull()
-                    Manager.editRoom(id, data, Manager.SortField.NOTE)
+                    data?.let { Manager.editRoom(id, it, Manager.SortField.NOTE) }
                 }
             }
         }
@@ -200,12 +200,12 @@ class Menu {
         println("Tìm kiếm theo \t1.ID\t2.Name\t3.Price")
         var choice = scanner.next()
         println("Nhập dữ liệu cần tìm: ")
-        var data = scanner.next()
+        var data = readlnOrNull()
         var listID = listOf<Int>()
         when(choice){
-            "1" -> listID = Manager.searchService(Manager.SortField.ID, data)
-            "2" -> listID = Manager.searchService(Manager.SortField.NAME, data)
-            "3" -> listID = Manager.searchService(Manager.SortField.PRICE, data)
+            "1" -> listID = data?.let { Manager.searchService(Manager.SortField.ID, it) } ?: listOf()
+            "2" -> listID = data?.let { Manager.searchService(Manager.SortField.NAME, it) } ?: listOf()
+            "3" -> listID = data?.let { Manager.searchService(Manager.SortField.PRICE, it) } ?: listOf()
             else -> println("Nhập sai")
         }
 
@@ -219,12 +219,12 @@ class Menu {
                 "1" -> {
                     println("Nhập giá: ")
                     data = readlnOrNull()
-                    Manager.editService(id, data, Manager.SortField.PRICE)
+                    data?.let { Manager.editService(id, it, Manager.SortField.PRICE) }
                 }
                 "2" -> {
                     println("Nhập tên mới: ")
                     data = readlnOrNull()
-                    Manager.editService(id, data, Manager.SortField.NAME)
+                    data?.let { Manager.editService(id, it, Manager.SortField.NAME) }
                 }
 
             }
@@ -234,6 +234,43 @@ class Menu {
         }
 
     }
+
+    private fun bookRoom(){
+
+        println("Nhập tên khách hàng: ")
+        val nameClient = readlnOrNull()
+        println("Danh sách khách hàng: ${nameClient}")
+        val listClient = nameClient?.let { Manager.searchClient(Manager.SortField.NAME, it) } ?: listOf()
+        println(listClient)
+        println("Nhập ID khách hàng đặt phòng: ")
+        val idClient = scanner.next()
+        if(listClient.contains(idClient)){
+            println("Danh sách phòng")
+            Manager.printListRoom()
+            println("Nhập ID phòng cần đặt: ")
+            val idRoom = scanner.nextInt()
+            println("Danh sách các dịch vụ")
+            Manager.printListService()
+            println("Nhập ID dịch vụ")
+            val idService = scanner.next()
+            val listService = Manager.searchServiceOj(Manager.SortField.ID, idService).toMutableList()
+            println("Bạn có muốn đặt phòng (Yes/No)")
+            val choice = scanner.next()
+            when(choice){
+                "Yes" -> Manager.bookRoom(idClient, idRoom, listService)
+                "No" -> {
+                    return
+                }
+            }
+
+        }
+        else{
+            println("Không tìm thấy")
+        }
+
+    }
+
+
     fun run() {
         while (true) {
             println("Menu")
@@ -250,7 +287,7 @@ class Menu {
                 }
 
                 3 -> {
-//                    TODO: booking
+                    bookRoom()
                 }
 
                 0 -> {

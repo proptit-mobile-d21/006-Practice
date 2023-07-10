@@ -2,12 +2,17 @@ package model
 
 import data.AllDataForExam
 import other.RoomType
+import java.text.SimpleDateFormat
+import java.util.Calendar
 
 object Manager {
     private var listClient = mutableListOf<Client>()
     private var listRoom = mutableListOf<Room>()
     private var listBooking = mutableListOf<Booking>()
     private var listService = mutableListOf<Service>()
+    private val calendar : Calendar = Calendar.getInstance()
+    private val formatDate = SimpleDateFormat("dd/MM/yyyy hh:mm:ss")
+
     enum class SortField {
         ID, NAME, ADDRESS, PHONE_NUMBER, EMAIL, TYPE, PRICE, ROOM_NUMBER, NOTE
     }
@@ -135,6 +140,20 @@ object Manager {
         printList(list)
         return list.map { it.id }
     }
+    fun searchServiceOj(searchField: SortField, data : String) : List<Service>{
+        val list = listService.customFilter { service: Service ->
+            when(searchField){
+                SortField.ID -> service.id.toString().contains(data)
+                SortField.NAME -> service.name.contains(data)
+                SortField.PRICE -> service.price.toString().contains(data)
+                else -> {
+                    true
+                }
+            }
+        }.toMutableList()
+        printList(list)
+        return list
+    }
     fun editClient(id: String, data: String, field: SortField) {
         val index = listClient.indexOfFirst { it.idCard == id }
         if (index != -1) {
@@ -175,6 +194,12 @@ object Manager {
             }
             listService[index] = newService
         }
+    }
+    fun bookRoom(idClient : String, idRoom : Int, idService : MutableList<Service>){
+        val checkIn = formatDate.format(calendar.time)
+        val booking = Booking(listBooking.size + 1, idClient, idRoom, idService, calendar.time)
+        listBooking.add(booking)
+        println(booking)
     }
 
 }
