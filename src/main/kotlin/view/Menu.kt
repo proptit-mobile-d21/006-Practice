@@ -16,11 +16,15 @@ import java.util.*
 
 class Menu {
     private val scanner = Scanner(System.`in`)
-    private fun printList(){
+    private fun choice() : String{
         println("\t a. Danh sách khách hàng")
         println("\t b. Danh sách phòng")
         println("\t c. Danh sách dịch vụ")
-        when(readlnOrNull()) {
+        return scanner.next()
+    }
+    private fun printList(){
+
+        when(choice()){
             "a" -> {
                 println("-----Danh sach khach hang-----")
                 Manager.printListClient()
@@ -34,10 +38,11 @@ class Menu {
             "c" -> {
                 println("-----Danh sach dich vu-----")
                 Manager.printListService()
-               sortService()
+                sortService()
             }
             else -> println("Nhập sai")
         }
+
     }
     private fun sortClient(){
         println("Sắp xếp danh sách theo: \t1.ID\t2.Name\t3.Address\t4.Phone\t5.Email")
@@ -72,6 +77,68 @@ class Menu {
         }
         Manager.printListService()
     }
+    private fun searchAndEdit(){
+        when(choice()){
+            "a" -> {
+                println("-----Danh sach khach hang-----")
+                searchClient()
+            }
+            "b" -> {
+                println("-----Danh sach phong-----")
+                searchRoom()
+            }
+            "c" -> {
+                println("-----Danh sach dich vu-----")
+                searchService()
+            }
+            else -> {
+                println("Nhập sai")
+
+            }
+        }
+    }
+    private fun searchClient(){
+        println("Tìm kiếm theo: \t1.ID\t2.Name\t3.Address\t4.Phone\t5.Email")
+        val choice = scanner.next()
+        println("Nhập dữ liệu cần tìm: ")
+        val data = scanner.next()
+        when(choice){
+            "1" -> Manager.searchClient(Manager.SortField.ID, data)
+            "2" -> Manager.searchClient(Manager.SortField.NAME, data)
+            "3" -> Manager.searchClient(Manager.SortField.ADDRESS, data)
+            "4" -> Manager.searchClient(Manager.SortField.PHONE_NUMBER, data)
+            "5" -> Manager.searchClient(Manager.SortField.EMAIL, data)
+            else -> println("Nhập sai")
+        }
+
+    }
+    private fun searchRoom(){
+        println("Tìm kiếm theo: \t1.ID\t2.Room Type\t3.Price\t4.Room Number")
+        val choice = scanner.next()
+        println("Nhập dữ liệu cần tìm: ")
+        val data = scanner.next()
+        when(choice){
+            "1" -> Manager.searchRoom(Manager.SortField.ID, data)
+            "2" -> Manager.searchRoom(Manager.SortField.TYPE, data)
+            "3" -> Manager.searchRoom(Manager.SortField.PRICE, data)
+            "4" -> Manager.searchRoom(Manager.SortField.ROOM_NUMBER, data)
+            else -> println("Nhập sai")
+        }
+
+    }
+    private fun searchService(){
+        println("Tìm kiếm theo \t1.ID\t2.Name\t3.Price")
+        val choice = scanner.next()
+        println("Nhập dữ liệu cần tìm: ")
+        val data = scanner.next()
+        when(choice){
+            "1" -> Manager.searchService(Manager.SortField.ID, data)
+            "2" -> Manager.searchService(Manager.SortField.NAME, data)
+            "3" -> Manager.searchService(Manager.SortField.PRICE, data)
+            else -> println("Nhập sai")
+        }
+
+    }
     fun run() {
         while (true) {
             println("Menu")
@@ -84,7 +151,7 @@ class Menu {
                 }
 
                 2 -> {
-//                    TODO: search and update data
+                    searchAndEdit();
                 }
 
                 3 -> {

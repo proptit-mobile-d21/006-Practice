@@ -39,11 +39,11 @@ object Manager {
         printList(listService)
     }
 
-    private fun <T , R : Comparable<R>> sortList(list: MutableList<T>, sortField: SortField, selector : (T) -> R?){
+    private fun <T , R : Comparable<R>> sortList(list: MutableList<T>,  selector : (T) -> R?){
         list.sortBy{selector(it)}
     }
     fun sortClient(sortField: SortField) {
-        sortList(listClient, sortField) { client ->
+        sortList(listClient) { client ->
             when (sortField) {
                 SortField.ID -> client.idCard
                 SortField.NAME -> client.name
@@ -57,7 +57,7 @@ object Manager {
         }
     }
     fun sortRoom(sortField: SortField){
-        sortList(listRoom, sortField){room ->
+        sortList(listRoom){room ->
             when(sortField){
                 SortField.ID -> room.id.toString()
                 SortField.TYPE -> room.roomType.toString()
@@ -70,7 +70,7 @@ object Manager {
         }
     }
     fun sortService(sortField : SortField){
-        sortList(listService, sortField){service ->
+        sortList(listService){service ->
             when(sortField){
                 SortField.ID -> service.id.toString()
                 SortField.NAME -> service.name
@@ -82,5 +82,50 @@ object Manager {
         }
     }
 
-
+   private fun <T> List<T>.customFilter(filterFunction : (T) -> Boolean) : List<T>{
+       val list = mutableListOf<T>()
+        for(it in this){
+            if(filterFunction(it)){
+                list.add(it)
+            }
+        }
+       return list
+   }
+    fun searchClient(searchField: SortField, data : String){
+        printList(listClient.customFilter { client ->
+            when(searchField){
+                SortField.ID -> client.idCard.contains(data)
+                SortField.NAME -> client.name.contains(data)
+                SortField.ADDRESS -> client.address.contains(data)
+                SortField.PHONE_NUMBER -> client.phoneNumber.contains(data)
+                SortField.EMAIL -> client.email?.contains(data) ?: true
+                else -> true
+            }
+        }.toMutableList())
+    }
+    fun searchRoom(searchField: SortField, data: String){
+        printList(listRoom.customFilter { room ->
+            when(searchField){
+                SortField.ID -> room.id.toString().contains(data)
+                SortField.TYPE -> room.roomType.toString().contains(data)
+                SortField.PRICE -> room.price.toString().contains(data)
+                SortField.ROOM_NUMBER -> room.roomNumber.contains(data)
+                else -> {
+                    true
+                }
+            }
+        }.toMutableList())
+    }
+    fun searchService(searchField: SortField, data : String){
+        printList(listService.customFilter { service: Service ->
+            when(searchField){
+                SortField.ID -> service.id.toString().contains(data)
+                SortField.NAME -> service.name.contains(data)
+                SortField.PRICE -> service.price.toString().contains(data)
+                else -> {
+                    true
+                }
+            }
+        }.toMutableList())
+    }
 }
