@@ -1,5 +1,7 @@
 package model
 
+import data.AllDataForExam
+
 
 /*
 * @author: Vo Huu Tuan
@@ -9,6 +11,6 @@ package model
 *
 * */
 
-
-
 data class Service(val id: Int, val name: String, val price: Long)
+
+
