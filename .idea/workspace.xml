@@ -6,6 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="8598955d-f7df-4908-87bc-01101269ef81" name="Changes" comment="set up project">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HotelManager/model/Manager$searchClient$1$WhenMappings.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HotelManager/model/Manager$searchClient$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HotelManager/model/Manager$searchRoom$1$WhenMappings.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HotelManager/model/Manager$searchRoom$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HotelManager/model/Manager$searchService$1$WhenMappings.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HotelManager/model/Manager$searchService$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HotelManager/model/Manager$sortList$$inlined$sortBy$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HotelManager/model/Manager$sortList$$inlined$sortBy$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HotelManager/model/Manager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HotelManager/model/Manager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/HotelManager/view/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HotelManager/view/Menu.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/model/Manager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/model/Manager.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/view/Menu.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/view/Menu.kt" afterDir="false" />

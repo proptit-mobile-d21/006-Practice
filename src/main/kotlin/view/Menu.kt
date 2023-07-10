@@ -99,43 +99,138 @@ class Menu {
     }
     private fun searchClient(){
         println("Tìm kiếm theo: \t1.ID\t2.Name\t3.Address\t4.Phone\t5.Email")
-        val choice = scanner.next()
+        var choice = scanner.next()
         println("Nhập dữ liệu cần tìm: ")
-        val data = scanner.next()
+        var data = scanner.next()
+        var listID = listOf<String>()
         when(choice){
-            "1" -> Manager.searchClient(Manager.SortField.ID, data)
-            "2" -> Manager.searchClient(Manager.SortField.NAME, data)
-            "3" -> Manager.searchClient(Manager.SortField.ADDRESS, data)
-            "4" -> Manager.searchClient(Manager.SortField.PHONE_NUMBER, data)
-            "5" -> Manager.searchClient(Manager.SortField.EMAIL, data)
+            "1" -> listID = Manager.searchClient(Manager.SortField.ID, data)
+            "2" -> listID = Manager.searchClient(Manager.SortField.NAME, data)
+            "3" -> listID = Manager.searchClient(Manager.SortField.ADDRESS, data)
+            "4" -> listID = Manager.searchClient(Manager.SortField.PHONE_NUMBER, data)
+            "5" -> listID = Manager.searchClient(Manager.SortField.EMAIL, data)
             else -> println("Nhập sai")
         }
-
+        println(listID)
+        println("Nhập ID khách hàng cẩn sửa: ")
+        val id = scanner.next()
+        if(listID.contains(id)){
+            println("Nhập thông tin cần sửa: \t1.Name\t2.Address\t3.Phone\t4.Email")
+            choice = scanner.next()
+            when(choice){
+                "1" -> {
+                    println("Nhập tên mới: ")
+                    data = readlnOrNull()
+                    Manager.editClient(id, data, Manager.SortField.NAME)
+                }
+                "2" -> {
+                    println("Nhập địa chỉ mới")
+                    data = readlnOrNull()
+                    Manager.editClient(id, data, Manager.SortField.ADDRESS)
+                }
+                "3" -> {
+                    println("Nhập điện thoại mới")
+                    data = readlnOrNull()
+                    Manager.editClient(id, data, Manager.SortField.PHONE_NUMBER)
+                }
+                "4" -> {
+                    println("Nhập email mới")
+                    data = readlnOrNull()
+                    Manager.editClient(id, data, Manager.SortField.EMAIL)
+                }
+            }
+        }
+        else{
+            println("Không tìm thấy")
+        }
     }
+
     private fun searchRoom(){
         println("Tìm kiếm theo: \t1.ID\t2.Room Type\t3.Price\t4.Room Number")
-        val choice = scanner.next()
+        var choice = scanner.next()
         println("Nhập dữ liệu cần tìm: ")
-        val data = scanner.next()
+        var data = scanner.next()
+        var listID = listOf<Int>()
         when(choice){
-            "1" -> Manager.searchRoom(Manager.SortField.ID, data)
-            "2" -> Manager.searchRoom(Manager.SortField.TYPE, data)
-            "3" -> Manager.searchRoom(Manager.SortField.PRICE, data)
-            "4" -> Manager.searchRoom(Manager.SortField.ROOM_NUMBER, data)
+            "1" -> listID = Manager.searchRoom(Manager.SortField.ID, data)
+            "2" -> listID = Manager.searchRoom(Manager.SortField.TYPE, data)
+            "3" -> listID = Manager.searchRoom(Manager.SortField.PRICE, data)
+            "4" -> listID = Manager.searchRoom(Manager.SortField.ROOM_NUMBER, data)
             else -> println("Nhập sai")
         }
+        println(listID)
+        println("Nhập ID room cẩn sửa: ")
+        val id = scanner.nextInt()
+        if(listID.contains(id)){
+            println("Nhập thông tin cần sửa: \t1.Type\t2.Price\t3.Room Number\t4.Note")
+            choice = scanner.next()
+            when(choice){
+                "1" -> {
+                    println("Nhập loại phòng:\n" +
+                            "\tSINGLE_ROOM,\n" +
+                            "\tDOUBLE_ROOM,\n" +
+                            "\tVIP_ROOM ")
+                    data = readlnOrNull()
+                    Manager.editRoom(id, data, Manager.SortField.TYPE)
+                }
+                "2" -> {
+                    println("Nhập giá mới: ")
+                    data = readlnOrNull()
+                    Manager.editRoom(id, data, Manager.SortField.PRICE)
+                }
+                "3" -> {
+                    println("Nhập số phòng mới")
+                    data = readlnOrNull()
+                    Manager.editRoom(id, data, Manager.SortField.ROOM_NUMBER)
+                }
+                "4" -> {
+                    println("Nhập ghi chú cho phòng")
+                    data = readlnOrNull()
+                    Manager.editRoom(id, data, Manager.SortField.NOTE)
+                }
+            }
+        }
+        else{
+            println("Không tìm thấy")
+        }
+
 
     }
     private fun searchService(){
         println("Tìm kiếm theo \t1.ID\t2.Name\t3.Price")
-        val choice = scanner.next()
+        var choice = scanner.next()
         println("Nhập dữ liệu cần tìm: ")
-        val data = scanner.next()
+        var data = scanner.next()
+        var listID = listOf<Int>()
         when(choice){
-            "1" -> Manager.searchService(Manager.SortField.ID, data)
-            "2" -> Manager.searchService(Manager.SortField.NAME, data)
-            "3" -> Manager.searchService(Manager.SortField.PRICE, data)
+            "1" -> listID = Manager.searchService(Manager.SortField.ID, data)
+            "2" -> listID = Manager.searchService(Manager.SortField.NAME, data)
+            "3" -> listID = Manager.searchService(Manager.SortField.PRICE, data)
             else -> println("Nhập sai")
+        }
+
+        println(listID)
+        println("Nhập ID service cẩn sửa: ")
+        val id = scanner.nextInt()
+        if(listID.contains(id)){
+            println("Nhập thông tin cần sửa: \t1.Price\t2.Name")
+            choice = scanner.next()
+            when(choice){
+                "1" -> {
+                    println("Nhập giá: ")
+                    data = readlnOrNull()
+                    Manager.editService(id, data, Manager.SortField.PRICE)
+                }
+                "2" -> {
+                    println("Nhập tên mới: ")
+                    data = readlnOrNull()
+                    Manager.editService(id, data, Manager.SortField.NAME)
+                }
+
+            }
+        }
+        else{
+            println("Không tìm thấy")
         }
 
     }
@@ -151,7 +246,7 @@ class Menu {
                 }
 
                 2 -> {
-                    searchAndEdit();
+                    searchAndEdit()
                 }
 
                 3 -> {
