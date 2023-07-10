@@ -1,17 +1,20 @@
 package model
 
 import data.AllDataForExam
+import other.RoomType
 
 class Manager {
-    private var roomList = mutableListOf<Room>()
-    private var clientList = mutableListOf<Client>()
-    private var serviceList = mutableListOf<Service>()
-    private var tempRoomList = mutableListOf<Room>()
+    private val roomList = mutableListOf<Room>()
+    private val clientList = mutableListOf<Client>()
+    private val serviceList = mutableListOf<Service>()
 
+    private val tempRoomList = mutableListOf<Room>()
+    private val tempClientList = mutableListOf<Client>()
+    private val tempServiceList = mutableListOf<Service>()
     init {
-        roomList = AllDataForExam.roomList.toMutableList()
-        clientList = AllDataForExam.clientList.toMutableList()
-        serviceList = AllDataForExam.serviceList.toMutableList()
+        roomList.addAll(AllDataForExam.roomList)
+        clientList.addAll(AllDataForExam.clientList)
+        serviceList.addAll(AllDataForExam.serviceList)
     }
 
     // Sắp xếp phòng
@@ -24,7 +27,8 @@ class Manager {
         sortedList.forEach { println(it) }
     }
     val showByRoomID: () -> Unit = {
-        roomList.forEach { println(it) }
+        val sortedList = roomList.sortedBy { it.id }
+        sortedList.forEach { println(it) }
     }
 
     // Sắp xếp khách hàng
@@ -33,7 +37,8 @@ class Manager {
         sortedList.forEach { println(it) }
     }
     val showByClientID: () -> Unit = {
-        clientList.forEach { println(it) }
+        val sortedList = clientList.sortedBy { it.idCard }
+        sortedList.forEach { println(it) }
     }
 
     // Sắp xếp dịch vụ
@@ -46,14 +51,15 @@ class Manager {
         sortedList.forEach { println(it) }
     }
     val showByServiceID: () -> Unit = {
-        serviceList.forEach { println(it) }
+        val sortedList = serviceList.sortedBy { it.id }
+        sortedList.forEach { println(it) }
     }
 
     // Tìm kiếm phòng
     val findByRoomID: (Int) -> Unit = {id ->
         roomList.filter { it.id.equals(id) }.forEach{ println(it) }
     }
-
+    // Sửa phòng
     fun editRoom(num: Int, id: Int){
         when(num){
             1 -> {
@@ -69,12 +75,306 @@ class Manager {
                         val newRoom = Room(newID, newRoomType, newPrice, newRoomNumber, newNote)
                         tempRoomList.add(newRoom)
                     }
+                    else{
+                        tempRoomList.add(it)
+                    }
                 }
+                roomList.clear()
+                roomList.addAll(tempRoomList)
+            }
+            2 -> {
+                println("1. SINGLE_ROOM")
+                println("2. DOUBLE_ROOM")
+                println("3. VIP_ROOM")
+                print("Enter New Room Type: ")
+                val inputRoomType = readln()!!.toInt()
+                roomList.forEachIndexed { index, it ->
+                    if(it.id.equals(id)){
+                        val newID = it.id
+                        var newRoomType = RoomType.SINGLE_ROOM
+                        if(inputRoomType == 1){
+                            newRoomType = RoomType.SINGLE_ROOM
+                        }else if(inputRoomType == 2){
+                            newRoomType = RoomType.DOUBLE_ROOM
+                        }
+                        else if(inputRoomType == 3){
+                            newRoomType = RoomType.VIP_ROOM
+                        }
+                        val newPrice = it.price
+                        val newRoomNumber = it.roomNumber
+                        val newNote = it.note
+                        val newRoom = Room(newID, newRoomType, newPrice, newRoomNumber, newNote)
+                        tempRoomList.add(newRoom)
+                    }
+                    else{
+                        tempRoomList.add(it)
+                    }
+                }
+                roomList.clear()
+                roomList.addAll(tempRoomList)
+            }
+            3 -> {
+                print("Enter New Price: ")
+                val inputPrice = readln()!!.toLong()
+                roomList.forEachIndexed { index, it ->
+                    if(it.id.equals(id)){
+                        val newID = it.id
+                        val newRoomType = it.roomType
+                        val newPrice = inputPrice
+                        val newRoomNumber = it.roomNumber
+                        val newNote = it.note
+                        val newRoom = Room(newID, newRoomType, newPrice, newRoomNumber, newNote)
+                        tempRoomList.add(newRoom)
+                    }
+                    else{
+                        tempRoomList.add(it)
+                    }
+                }
+                roomList.clear()
+                roomList.addAll(tempRoomList)
+            }
+            4 -> {
+                print("Enter New Room Number: ")
+                val inputRoomNumber = readln()!!
+                roomList.forEachIndexed { index, it ->
+                    if(it.id.equals(id)){
+                        val newID = it.id
+                        val newRoomType = it.roomType
+                        val newPrice = it.price
+                        val newRoomNumber = inputRoomNumber
+                        val newNote = it.note
+                        val newRoom = Room(newID, newRoomType, newPrice, newRoomNumber, newNote)
+                        tempRoomList.add(newRoom)
+                    }
+                    else{
+                        tempRoomList.add(it)
+                    }
+                }
+                roomList.clear()
+                roomList.addAll(tempRoomList)
+            }
+            5 -> {
+                print("Enter New Note: ")
+                val inputNote = readln()!!
+                roomList.forEachIndexed { index, it ->
+                    if(it.id.equals(id)){
+                        val newID = it.id
+                        val newRoomType = it.roomType
+                        val newPrice = it.price
+                        val newRoomNumber = it.roomNumber
+                        val newNote = inputNote
+                        val newRoom = Room(newID, newRoomType, newPrice, newRoomNumber, newNote)
+                        tempRoomList.add(newRoom)
+                    }
+                    else{
+                        tempRoomList.add(it)
+                    }
+                }
+                roomList.clear()
                 roomList.addAll(tempRoomList)
             }
         }
     }
 
+    // Tìm kiếm khách hàng
+    val findByClientID: (String) -> Unit = {id ->
+        clientList.filter { it.idCard.equals(id) }.forEach{ println(it) }
+    }
+    // Sửa khách hàng
+    fun editClient(num: Int, id:String){
+        when(num){
+            1 -> {
+                print("Enter New ID: ")
+                val inputID = readln()!!
+                clientList.forEachIndexed { index, it ->
+                    if(it.idCard.equals(id)){
+                        val newID = inputID
+                        val newName = it.name
+                        val newAddress = it.address
+                        val newPhoneNumber = it.phoneNumber
+                        val newEmail = it.email
+                        val newNote = it.note
+                        val newClient = Client(newID, newName, newAddress, newPhoneNumber, newEmail, newNote)
+                        tempClientList.add(newClient)
+                    }
+                    else{
+                        tempClientList.add(it)
+                    }
+                }
+                clientList.clear()
+                clientList.addAll(tempClientList)
+            }
+            2 -> {
+                print("Enter New Name: ")
+                val inputName = readln()!!
+                clientList.forEachIndexed { index, it ->
+                    if(it.idCard.equals(id)){
+                        val newID = it.idCard
+                        val newName = inputName
+                        val newAddress = it.address
+                        val newPhoneNumber = it.phoneNumber
+                        val newEmail = it.email
+                        val newNote = it.note
+                        val newClient = Client(newID, newName, newAddress, newPhoneNumber, newEmail, newNote)
+                        tempClientList.add(newClient)
+                    }
+                    else{
+                        tempClientList.add(it)
+                    }
+                }
+                clientList.clear()
+                clientList.addAll(tempClientList)
+            }
+            3 -> {
+                print("Enter New Address: ")
+                val inputAddress = readln()!!
+                clientList.forEachIndexed { index, it ->
+                    if(it.idCard.equals(id)){
+                        val newID = it.idCard
+                        val newName = it.name
+                        val newAddress = inputAddress
+                        val newPhoneNumber = it.phoneNumber
+                        val newEmail = it.email
+                        val newNote = it.note
+                        val newClient = Client(newID, newName, newAddress, newPhoneNumber, newEmail, newNote)
+                        tempClientList.add(newClient)
+                    }
+                    else{
+                        tempClientList.add(it)
+                    }
+                }
+                clientList.clear()
+                clientList.addAll(tempClientList)
+            }
+            4 -> {
+                print("Enter New Phone Number: ")
+                val inputPhoneNumber = readln()!!
+                clientList.forEachIndexed { index, it ->
+                    if(it.idCard.equals(id)){
+                        val newID = it.idCard
+                        val newName = it.name
+                        val newAddress = it.address
+                        val newPhoneNumber = inputPhoneNumber
+                        val newEmail = it.email
+                        val newNote = it.note
+                        val newClient = Client(newID, newName, newAddress, newPhoneNumber, newEmail, newNote)
+                        tempClientList.add(newClient)
+                    }
+                    else{
+                        tempClientList.add(it)
+                    }
+                }
+                clientList.clear()
+                clientList.addAll(tempClientList)
+            }
+            5 -> {
+                print("Enter New Email: ")
+                val inputEmail = readln()!!
+                clientList.forEachIndexed { index, it ->
+                    if(it.idCard.equals(id)){
+                        val newID = it.idCard
+                        val newName = it.name
+                        val newAddress = it.address
+                        val newPhoneNumber = it.phoneNumber
+                        val newEmail = inputEmail
+                        val newNote = it.note
+                        val newClient = Client(newID, newName, newAddress, newPhoneNumber, newEmail, newNote)
+                        tempClientList.add(newClient)
+                    }
+                    else{
+                        tempClientList.add(it)
+                    }
+                }
+                clientList.clear()
+                clientList.addAll(tempClientList)
+            }
+            6 -> {
+                print("Enter New Note: ")
+                val inputNote = readln()!!
+                clientList.forEachIndexed { index, it ->
+                    if(it.idCard.equals(id)){
+                        val newID = it.idCard
+                        val newName = it.name
+                        val newAddress = it.address
+                        val newPhoneNumber = it.phoneNumber
+                        val newEmail = it.email
+                        val newNote = inputNote
+                        val newClient = Client(newID, newName, newAddress, newPhoneNumber, newEmail, newNote)
+                        tempClientList.add(newClient)
+                    }
+                    else{
+                        tempClientList.add(it)
+                    }
+                }
+                clientList.clear()
+                clientList.addAll(tempClientList)
+            }
+        }
+    }
+
+    // Tìm kiếm dịch vụ
+    val findByServiceID: (Int) -> Unit = {id ->
+        serviceList.filter { it.id.equals(id) }.forEach{ println(it) }
+    }
+    // Sửa dịch vụ
+    fun editService(num: Int, id:Int){
+        when(num){
+            1 -> {
+                print("Enter New ID: ")
+                val inputID = readln()!!.toInt()
+                serviceList.forEachIndexed { index, it ->
+                    if(it.id.equals(id)){
+                        val newID = inputID
+                        val newName = it.name
+                        val newPrice = it.price
+                        val newService = Service(newID, newName, newPrice)
+                        tempServiceList.add(newService)
+                    }
+                    else{
+                        tempServiceList.add(it)
+                    }
+                }
+                serviceList.clear()
+                serviceList.addAll(tempServiceList)
+            }
+            2 -> {
+                print("Enter New Name: ")
+                val inputName = readln()!!
+                serviceList.forEachIndexed { index, it ->
+                    if(it.id.equals(id)){
+                        val newID = it.id
+                        val newName = inputName
+                        val newPrice = it.price
+                        val newService = Service(newID, newName, newPrice)
+                        tempServiceList.add(newService)
+                    }
+                    else{
+                        tempServiceList.add(it)
+                    }
+                }
+                serviceList.clear()
+                serviceList.addAll(tempServiceList)
+            }
+            3 -> {
+                print("Enter New Price: ")
+                val inputPrice = readln()!!.toLong()
+                serviceList.forEachIndexed { index, it ->
+                    if(it.id.equals(id)){
+                        val newID = it.id
+                        val newName = it.name
+                        val newPrice = inputPrice
+                        val newService = Service(newID, newName, newPrice)
+                        tempServiceList.add(newService)
+                    }
+                    else{
+                        tempServiceList.add(it)
+                    }
+                }
+                serviceList.clear()
+                serviceList.addAll(tempServiceList)
+            }
+        }
+    }
 
 
 }

@@ -16,6 +16,7 @@ import java.util.*
 
 class Menu {
     fun run() {
+        val manager = Manager()
         while (true) {
             println("._________________________.")
             println("|           MENU          |")
@@ -26,7 +27,6 @@ class Menu {
             println("._________________________.")
             print("Your choice: ")
             val choiceMenu = readln()!!.toInt()
-            val manager = Manager()
             when(choiceMenu){
                 1 -> {
                     println("._________________________.")
@@ -137,16 +137,16 @@ class Menu {
                                     manager.editRoom(1,id)
                                 }
                                 2 -> {
-
+                                    manager.editRoom(2,id)
                                 }
                                 3 -> {
-
+                                    manager.editRoom(3,id)
                                 }
                                 4 -> {
-
+                                    manager.editRoom(4,id)
                                 }
                                 5 -> {
-
+                                    manager.editRoom(5,id)
                                 }
                                 0 -> {
                                     continue
@@ -155,9 +155,73 @@ class Menu {
                         }
                         2 -> {
                             manager.showByClientID()
+                            print("Enter ID Client: ")
+                            val id = readln()!!
+                            manager.findByClientID(id)
+                            println("._________________________.")
+                            println("|      FIND AND EDIT      |")
+                            println("|1. ID                    |")
+                            println("|2. Name                  |")
+                            println("|3. Address               |")
+                            println("|4. Phone Number          |")
+                            println("|5. Email                 |")
+                            println("|6. Note                  |")
+                            println("|0. Back to MENU          |")
+                            println("._________________________.")
+                            print("Your choice: ")
+                            val choiceFAEBy = readln()!!.toInt()
+                            when(choiceFAEBy){
+                                1 -> {
+                                    manager.editClient(1,id)
+                                }
+                                2 -> {
+                                    manager.editClient(2,id)
+                                }
+                                3 -> {
+                                    manager.editClient(3,id)
+                                }
+                                4 -> {
+                                    manager.editClient(4,id)
+                                }
+                                5 -> {
+                                    manager.editClient(5,id)
+                                }
+                                6 -> {
+                                    manager.editClient(6,id)
+                                }
+                                0 -> {
+                                    continue
+                                }
+                            }
                         }
                         3 -> {
                             manager.showByServiceID()
+                            print("Enter ID Service: ")
+                            val id = readln()!!.toInt()
+                            manager.findByServiceID(id)
+                            println("._________________________.")
+                            println("|      FIND AND EDIT      |")
+                            println("|1. ID                    |")
+                            println("|2. Name                  |")
+                            println("|3. Price                 |")
+                            println("|0. Back to MENU          |")
+                            println("._________________________.")
+                            print("Your choice: ")
+                            val choiceFAEBy = readln()!!.toInt()
+                            when(choiceFAEBy){
+                                1 -> {
+                                    manager.editService(1,id)
+                                }
+                                2 -> {
+                                    manager.editService(2,id)
+                                }
+                                3 -> {
+                                    manager.editService(3,id)
+                                }
+                                0 -> {
+                                    continue
+                                }
+                            }
                         }
                         4 -> {
                             continue
