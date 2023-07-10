@@ -1,14 +1,16 @@
 package view
 
 import model.Manager
+import model.Service
+import java.text.DateFormat
+import java.text.SimpleDateFormat
 import java.util.*
-
 
 /*
 * @author: Vo Huu Tuan
 * @since:  06/07/2023 23:22
 * @github:  https://github.com/hidenobi
-* @update: 
+* @update:
 *
 * */
 
@@ -17,6 +19,8 @@ import java.util.*
 class Menu {
     fun run() {
         val manager = Manager()
+        val list =  mutableListOf<Service>()
+        var count = 1
         while (true) {
             println("._________________________.")
             println("|           MENU          |")
@@ -229,7 +233,42 @@ class Menu {
                     }
                 }
                 3 -> {
+                    print("Enter Name: ")
+                    val inputName = readln()!!
+                    var inputClientID: String
+                    if(manager.checkByClientName(inputName) > 0) {
+                        manager.findByClientName(inputName)
+                        print("Enter ID of Client: ")
+                        inputClientID = readln()!!
+                    }else {
+                        print("Enter new ID of Client: ")
+                        inputClientID = readln()!!
+                    }
+                    manager.showByRoomID()
+                    print("Enter ID of Room: ")
+                    val inputRoomID = readln()!!.toInt()
 
+                    manager.showByServiceID()
+                    while(true){
+                        print("Enter ID of Service (Enter '0' to quit): ")
+                        val inputServiceID = readln()!!.toInt()
+                        if(inputServiceID.equals(0)) break
+                        manager.checkByServiceID(inputServiceID, list)
+                    }
+
+                    print("Enter rental start date (dd/MM/yyyy): ")
+                    val inputStart = readln()!!
+                    print("Enter rental end date (dd/MM/yyyy): ")
+                    val inputEnd = readln()!!
+                    val dateFormat: DateFormat = SimpleDateFormat("dd/MM/yyyy")
+                    var dateStart: Date? = null
+                    dateStart = dateFormat.parse(inputStart)
+                    var dateEnd: Date? = null
+                    dateEnd = dateFormat.parse(inputEnd)
+
+                    manager.addBooking(count, inputClientID, inputRoomID, list ,dateStart, dateEnd)
+                    count++
+                    manager.showBooking()
                 }
                 4 -> {
                     println("Thank you for using my service <3.")

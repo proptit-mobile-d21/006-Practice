@@ -2,11 +2,13 @@ package model
 
 import data.AllDataForExam
 import other.RoomType
+import java.util.*
 
 class Manager {
     private val roomList = mutableListOf<Room>()
     private val clientList = mutableListOf<Client>()
     private val serviceList = mutableListOf<Service>()
+    private val bookingList = mutableListOf<Booking>()
 
     private val tempRoomList = mutableListOf<Room>()
     private val tempClientList = mutableListOf<Client>()
@@ -17,6 +19,7 @@ class Manager {
         serviceList.addAll(AllDataForExam.serviceList)
     }
 
+// Dịch vụ 1
     // Sắp xếp phòng
     val showByRoomType: () -> Unit = {
         val sortedList = roomList.sortedBy { it.roomType }
@@ -30,7 +33,6 @@ class Manager {
         val sortedList = roomList.sortedBy { it.id }
         sortedList.forEach { println(it) }
     }
-
     // Sắp xếp khách hàng
     val showByClientName: () -> Unit = {
         val sortedList = clientList.sortedBy { it.name }
@@ -40,7 +42,6 @@ class Manager {
         val sortedList = clientList.sortedBy { it.idCard }
         sortedList.forEach { println(it) }
     }
-
     // Sắp xếp dịch vụ
     val showByServiceName: () -> Unit = {
         val sortedList = serviceList.sortedBy { it.name }
@@ -55,6 +56,7 @@ class Manager {
         sortedList.forEach { println(it) }
     }
 
+// Dịch vụ 2
     // Tìm kiếm phòng
     val findByRoomID: (Int) -> Unit = {id ->
         roomList.filter { it.id.equals(id) }.forEach{ println(it) }
@@ -175,7 +177,6 @@ class Manager {
             }
         }
     }
-
     // Tìm kiếm khách hàng
     val findByClientID: (String) -> Unit = {id ->
         clientList.filter { it.idCard.equals(id) }.forEach{ println(it) }
@@ -311,7 +312,6 @@ class Manager {
             }
         }
     }
-
     // Tìm kiếm dịch vụ
     val findByServiceID: (Int) -> Unit = {id ->
         serviceList.filter { it.id.equals(id) }.forEach{ println(it) }
@@ -376,5 +376,31 @@ class Manager {
         }
     }
 
-
+// Dịch vụ 3
+    // Tìm kiếm tên khách hàng
+    val checkByClientName: (String) -> Int = { name ->
+        clientList.count { it.name == name }
+    }
+    val findByClientName: (String) -> Unit = {name ->
+        clientList.filter { it.name.equals(name) }.forEach{ println(it) }
+    }
+    fun checkByServiceID(id: Int, list: MutableList<Service>) {
+        serviceList.filter { it.id.equals(id) }
+            .forEach { list.add(it) }
+    }
+    fun addBooking(id: Int,
+                   idClient: String,
+                   idRoom: Int,
+                   listService: MutableList<Service> = mutableListOf(),
+                   checkIn: Date?,
+                   checkOut: Date?)
+    {
+        val booking = Booking(id, idClient, idRoom, listService, checkIn, checkOut)
+        bookingList.add(booking)
+    }
+    val showBooking: () -> Unit = {
+        bookingList.forEach { println(it) }
+    }
 }
+
+
