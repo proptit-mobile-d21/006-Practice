@@ -1,6 +1,7 @@
 package view
 
-import java.util.*
+import utils.lcConsole.Display
+import view.menu.MainMenu
 
 
 /*
@@ -14,35 +15,9 @@ import java.util.*
 
 
 class Menu {
-    private val scanner = Scanner(System.`in`)
+
     fun run() {
-        while (true) {
-            println("Menu")
-            println("1. Danh sách các đối tượng")
-            println("2. Tìm kiếm và thay đổi thông tin đối tượng")
-            println("3. Đặt phòng")
-            when (scanner.nextInt()) {
-                1 -> {
-//                    TODO: print list object
-
-                }
-
-                2 -> {
-//                    TODO: search and update data
-                }
-
-                3 -> {
-//                    TODO: booking
-                }
-
-                0 -> {
-//                    TODO: back to menu
-                }
-
-                else -> {
-                    return
-                }
-            }
-        }
+        Display.init(MainMenu())
+        Display.run()
     }
 }

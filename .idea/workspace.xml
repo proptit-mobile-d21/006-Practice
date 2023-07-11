@@ -1,7 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="8598955d-f7df-4908-87bc-01101269ef81" name="Changes" comment="set up project" />
+    <list default="true" id="8598955d-f7df-4908-87bc-01101269ef81" name="Changes" comment="Added my own lib for utils">
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/Hai_Nguyen.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/controller/Manager.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/utils/lcConsole/Dialog.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/utils/lcConsole/Display.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/utils/lcConsole/Menu.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/utils/lcConsole/Option.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/utils/lcConsole/Page.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/utils/lcConsole/TableViewer.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/utils/lcTable/Table.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/view/menu/ListMenu.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/view/menu/MainMenu.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/view/menu/ModifyMenu.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/view/menu/RentMenu.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HotelManager/view/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HotelManager/view/Menu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/view/Menu.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/view/Menu.kt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,6 +35,8 @@
         <option value="Kotlin Enum" />
         <option value="Kotlin Object" />
         <option value="Kotlin Data Class" />
+        <option value="Class" />
+        <option value="Kotlin Interface" />
         <option value="Kotlin Class" />
       </list>
     </option>
@@ -51,9 +75,16 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Programming/Android/AndroidCourse/Git/006-practice&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.spelling&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CreateKotlinClassDialog.RecentsKey">
+      <recent name="view.menu" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="MainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="MainKt" />
@@ -114,6 +145,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="set up project" />
-    <option name="LAST_COMMIT_MESSAGE" value="set up project" />
+    <MESSAGE value="Added my own lib for utils" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added my own lib for utils" />
   </component>
 </project>
