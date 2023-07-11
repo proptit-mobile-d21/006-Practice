@@ -2,6 +2,7 @@ package model
 
 import data.AllDataForExam
 import other.RoomType
+import view.Table
 import java.text.SimpleDateFormat
 import java.util.Calendar
 
@@ -36,13 +37,29 @@ object Manager {
         }
     }
     fun printListClient() {
-        printList(listClient)
+        val table = Table(mutableListOf("ID", "Tên", "Địa chỉ", "Số điện thoại", "Email"))
+        listClient.forEach {
+            val data = mutableListOf<String>(it.idCard, it.name, it.address, it.phoneNumber, it.email ?: "")
+            table.addData(data)
+        }
+        table.printData()
+
     }
     fun printListRoom() {
-        printList(listRoom)
+        val table = Table(mutableListOf("ID", "Loại phòng", "Giá", "Số phòng", "Ghi chú"))
+        listRoom.forEach {
+            val data = mutableListOf<String>(it.id.toString(), it.roomType.toString(), it.price.toString(), it.roomNumber, it.note ?: "")
+            table.addData(data)
+        }
+        table.printData()
     }
      fun printListService() {
-        printList(listService)
+        val table = Table(mutableListOf("ID", "Tên dịch vụ", "Giá"))
+        listService.forEach {
+            val data = mutableListOf<String>(it.id.toString(), it.name, it.price.toString())
+            table.addData(data)
+        }
+        table.printData()
     }
 
     private fun <T , R : Comparable<R>> sortList(list: MutableList<T>,  selector : (T) -> R?){

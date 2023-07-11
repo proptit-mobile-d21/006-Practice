@@ -1,5 +1,6 @@
 package view
 
+import exception.NotFoundException
 import model.Manager
 import java.util.*
 
@@ -241,6 +242,10 @@ class Menu {
         val nameClient = readlnOrNull()
         println("Danh sách khách hàng: ${nameClient}")
         val listClient = nameClient?.let { Manager.searchClient(Manager.SortField.NAME, it) } ?: listOf()
+        if(listClient.isEmpty()){
+            println("Không có khách hàng")
+            return
+        }
         println(listClient)
         println("Nhập ID khách hàng đặt phòng: ")
         val idClient = scanner.next()
@@ -248,24 +253,35 @@ class Menu {
             println("Danh sách phòng")
             Manager.printListRoom()
             println("Nhập ID phòng cần đặt: ")
-            val idRoom = scanner.nextInt()
-            println("Danh sách các dịch vụ")
-            Manager.printListService()
-            println("Nhập ID dịch vụ")
-            val idService = scanner.next()
-            val listService = Manager.searchServiceOj(Manager.SortField.ID, idService).toMutableList()
-            println("Bạn có muốn đặt phòng (Yes/No)")
-            val choice = scanner.next()
-            when(choice){
-                "Yes" -> Manager.bookRoom(idClient, idRoom, listService)
-                "No" -> {
-                    return
+            try {
+                val idRoom = scanner.nextInt()
+                println("Danh sách các dịch vụ")
+                Manager.printListService()
+                println("Nhập ID dịch vụ")
+                try {
+                    val idService = scanner.next()
+                    val listService = Manager.searchServiceOj(Manager.SortField.ID, idService).toMutableList()
+                    println("Bạn có muốn đặt phòng (Yes/No)")
+                    when(scanner.next()){
+                        "Yes" -> Manager.bookRoom(idClient, idRoom, listService)
+                        "No" -> {
+                            return
+                        }
+                    }
+                }
+                catch (_: NotFoundException){
+                    println(NotFoundException("Không tìm thấy ID dịch vụ"))
                 }
             }
+            catch (_ : NotFoundException){
+                println(NotFoundException("Không tìm thấy phòng"))
+            }
+
+
 
         }
         else{
-            println("Không tìm thấy")
+            println("Không tìm thấy ID")
         }
 
     }
