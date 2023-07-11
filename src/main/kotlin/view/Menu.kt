@@ -112,7 +112,7 @@ class Menu {
             "5" -> listID = data?.let { Manager.searchClient(Manager.SortField.EMAIL, it) } ?: listOf()
             else -> println("Nhập sai")
         }
-        println(listID)
+       // println(listID)
         println("Nhập ID khách hàng cẩn sửa: ")
         val id = scanner.next()
         if(listID.contains(id)){

@@ -12,7 +12,7 @@ object Manager {
     private var listBooking = mutableListOf<Booking>()
     private var listService = mutableListOf<Service>()
     private val calendar : Calendar = Calendar.getInstance()
-    private val formatDate = SimpleDateFormat("dd/MM/yyyy hh:mm:ss")
+   // private val formatDate = SimpleDateFormat("dd/MM/yyyy hh:mm:ss")
 
     enum class SortField {
         ID, NAME, ADDRESS, PHONE_NUMBER, EMAIL, TYPE, PRICE, ROOM_NUMBER, NOTE
@@ -31,37 +31,40 @@ object Manager {
         listRoom = AllDataForExam.roomList.toMutableList()
         listService = AllDataForExam.serviceList.toMutableList()
     }
-    private fun <T> printList(list : MutableList<T>){
-        list.forEach {
-            println(it)
-        }
-    }
-    fun printListClient() {
-        val table = Table(mutableListOf("ID", "Tên", "Địa chỉ", "Số điện thoại", "Email"))
-        listClient.forEach {
-            val data = mutableListOf<String>(it.idCard, it.name, it.address, it.phoneNumber, it.email ?: "")
+    private fun <T> printList(list: List<T>, headers: List<String>, vararg fields: (T) -> Any?) {
+        val table = Table(headers.toMutableList())
+        list.forEach { item ->
+            val data = fields.map { field -> field(item)?.toString() ?: "" }.toMutableList()
             table.addData(data)
         }
         table.printData()
+    }
+
+    fun printListClient() {
+        printList(listClient, listOf("ID", "Tên", "Địa chỉ", "Số điện thoại", "Email"),
+            Client::idCard, Client::name, Client::address, Client::phoneNumber, Client::email)
+    }
+    private fun printListClient(list : MutableList<Client>) {
+        printList(list, listOf("ID", "Tên", "Địa chỉ", "Số điện thoại", "Email"),
+            Client::idCard, Client::name, Client::address, Client::phoneNumber, Client::email)
 
     }
     fun printListRoom() {
-        val table = Table(mutableListOf("ID", "Loại phòng", "Giá", "Số phòng", "Ghi chú"))
-        listRoom.forEach {
-            val data = mutableListOf<String>(it.id.toString(), it.roomType.toString(), it.price.toString(), it.roomNumber, it.note ?: "")
-            table.addData(data)
-        }
-        table.printData()
+        printList(listRoom, listOf("ID", "Loại phòng", "Giá", "Số phòng", "Ghi chú"),
+            Room::id, Room::roomType, Room::price, Room::roomNumber, Room::note)
+    }
+    private fun printListRoom(list : MutableList<Room>) {
+        printList(list, listOf("ID", "Loại phòng", "Giá", "Số phòng", "Ghi chú"),
+            Room::id, Room::roomType, Room::price, Room::roomNumber, Room::note)
     }
      fun printListService() {
-        val table = Table(mutableListOf("ID", "Tên dịch vụ", "Giá"))
-        listService.forEach {
-            val data = mutableListOf<String>(it.id.toString(), it.name, it.price.toString())
-            table.addData(data)
-        }
-        table.printData()
+        printList(listService, listOf("ID", "Tên dịch vụ", "Giá"),
+            Service::id, Service::name, Service::price)
     }
-
+    private fun printListService(list : MutableList<Service>) {
+        printList(list, listOf("ID", "Tên dịch vụ", "Giá"),
+            Service::id, Service::name, Service::price)
+    }
     private fun <T , R : Comparable<R>> sortList(list: MutableList<T>,  selector : (T) -> R?){
         list.sortBy{selector(it)}
     }
@@ -125,7 +128,7 @@ object Manager {
                 else -> true
             }
         }.toMutableList()
-        printList(list)
+        printListClient(list)
         return list.map { it.idCard }
     }
     fun searchRoom(searchField: SortField, data: String) : List<Int>{
@@ -140,7 +143,7 @@ object Manager {
                 }
             }
         }.toMutableList()
-        printList(list)
+        printListRoom(list)
         return list.map { it.id }
     }
     fun searchService(searchField: SortField, data : String) : List<Int>{
@@ -154,7 +157,7 @@ object Manager {
                 }
             }
         }.toMutableList()
-        printList(list)
+        printListService(list)
         return list.map { it.id }
     }
     fun searchServiceOj(searchField: SortField, data : String) : List<Service>{
@@ -168,7 +171,7 @@ object Manager {
                 }
             }
         }.toMutableList()
-        printList(list)
+        printListService(list)
         return list
     }
     fun editClient(id: String, data: String, field: SortField) {
@@ -213,7 +216,7 @@ object Manager {
         }
     }
     fun bookRoom(idClient : String, idRoom : Int, idService : MutableList<Service>){
-        val checkIn = formatDate.format(calendar.time)
+        //val checkIn = formatDate.format(calendar.time)
         val booking = Booking(listBooking.size + 1, idClient, idRoom, idService, calendar.time)
         listBooking.add(booking)
         println(booking)

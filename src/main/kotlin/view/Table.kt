@@ -16,7 +16,6 @@ class Table() {
     }
     private fun setTitle(title : MutableList<String>){
        // println("Hehe setTitle")
-        width.clear()
         for (i in 0 until title.size){
             width.add(title[i].length + widthOffset)
         }
@@ -55,7 +54,11 @@ class Table() {
         for(i in 0 until data.size){
             println(str)
             for(j in 0 until data[i].size){
-                print("|" + data[i][j].padEnd(width[j]))
+                if(data[i][j] == ""){
+                    print("|Không có dữ liệu".padEnd(width[j]))
+                }
+                else
+                    print("|" + data[i][j].padEnd(width[j]))
             }
             println()
         }
