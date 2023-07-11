@@ -36,10 +36,25 @@ class Menu {
                     println("3. Danh sách dịch vụ")
                     when(scanner.nextInt()){
                         1 -> {
-                            println("Danh sách phòng:")
+                            println("In danh sách phòng:")
                             for(it in controller.showRoomList()){
-                                println("ID: ${it.id} --- Note: ${it.note} --- Price: ${it.price}")
+                                println("ID: ${it.id} --- Room Type: ${it.roomType} --- Price: ${it.price} --- Room Number: ${it.roomNumber}")
                             }
+                        }
+                        2 -> {
+                            println("In danh sách khách hàng:")
+                            for(it in controller.showClientList()){
+                                println("ID: ${it.idCard} --- Name: ${it.name} --- Address: ${it.address} --- Phone Number: ${it.phoneNumber} --- Email: ${it.email} --- Note: ${it.note}")
+                            }
+                        }
+                        3 -> {
+                            println("In danh sách dịch vụ:")
+                            for(it in controller.showServiceList()){
+                                println("ID: ${it.id} --- Name: ${it.name} --- Price: ${it.price}")
+                            }
+                        }
+                        else -> {
+                            return
                         }
                     }
 

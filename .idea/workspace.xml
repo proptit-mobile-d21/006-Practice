@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8598955d-f7df-4908-87bc-01101269ef81" name="Changes" comment="set up project">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/controller/Controller.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/controller/RoomManagement.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/other/Util.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/controller/Controller.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/controller/Controller.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/view/Menu.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/view/Menu.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
