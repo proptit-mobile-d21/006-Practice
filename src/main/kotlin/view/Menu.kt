@@ -1,5 +1,7 @@
 package view
 
+import controller.Controller
+import controller.RoomManagement
 import java.util.*
 
 
@@ -15,7 +17,11 @@ import java.util.*
 
 class Menu {
     private val scanner = Scanner(System.`in`)
+    private val roomManagement = RoomManagement()
+    private val controller = Controller(roomManagement)
+
     fun run() {
+        controller.init()
         while (true) {
             println("Menu")
             println("1. Danh sách các đối tượng")
@@ -24,6 +30,18 @@ class Menu {
             when (scanner.nextInt()) {
                 1 -> {
 //                    TODO: print list object
+                    println("Danh sách các đối tượng:")
+                    println("1. Danh sách phòng")
+                    println("2. Danh sách khác hàng")
+                    println("3. Danh sách dịch vụ")
+                    when(scanner.nextInt()){
+                        1 -> {
+                            println("Danh sách phòng:")
+                            for(it in controller.showRoomList()){
+                                println("ID: ${it.id} --- Note: ${it.note} --- Price: ${it.price}")
+                            }
+                        }
+                    }
 
                 }
 
