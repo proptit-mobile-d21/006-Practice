@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="8598955d-f7df-4908-87bc-01101269ef81" name="Changes" comment="set up project" />
+    <list default="true" id="8598955d-f7df-4908-87bc-01101269ef81" name="Changes" comment="set up project">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HotelManager/model/Manager$searchClient$list$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HotelManager/model/Manager$searchClient$list$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HotelManager/model/Manager$searchRoom$list$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HotelManager/model/Manager$searchRoom$list$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HotelManager/model/Manager$searchService$list$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HotelManager/model/Manager$searchService$list$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HotelManager/model/Manager$searchServiceOj$list$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HotelManager/model/Manager$searchServiceOj$list$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HotelManager/model/Manager$sortClient$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HotelManager/model/Manager$sortClient$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HotelManager/model/Manager$sortList$$inlined$sortBy$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HotelManager/model/Manager$sortList$$inlined$sortBy$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HotelManager/model/Manager$sortRoom$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HotelManager/model/Manager$sortRoom$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HotelManager/model/Manager$sortService$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HotelManager/model/Manager$sortService$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HotelManager/model/Manager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HotelManager/model/Manager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HotelManager/view/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HotelManager/view/Menu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HotelManager/view/Table.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HotelManager/view/Table.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/model/Manager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/model/Manager.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/view/Menu.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/view/Menu.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/view/Table.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/view/Table.kt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,13 +66,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "D:/MobileProPTIT/006-practice"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="MainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="MainKt" />
