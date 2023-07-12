@@ -7,11 +7,12 @@ import model.Service
 import kotlin.reflect.KClass
 
 class RoomManagement {
-    fun <T> showList(item: List<T>) : List<T>{
+    fun <T> showList(item: MutableList<T>) : List<T>{
        return item.toList()
     }
 
-    fun <T> initList(list: List<T>) : List<T>{
-        return list.toList()
+    fun <T> initList(list: List<T>) : MutableList<T>{
+        return list.toMutableList()
     }
+
 }

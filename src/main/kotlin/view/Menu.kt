@@ -40,15 +40,44 @@ class Menu {
                             for(it in controller.showRoomList()){
                                 println("ID: ${it.id} --- Room Type: ${it.roomType} --- Price: ${it.price} --- Room Number: ${it.roomNumber}")
                             }
+
+                            println("Chọn cách sắp xếp:")
+                            println("1. Theo số phòng.")
+                            println("2. Theo loại phòng.")
+                            println("3. Theo giá phòng.")
+                            controller.sortRoomList(scanner.nextInt())
+
+                            for(it in controller.showRoomList()){
+                                println("ID: ${it.id} --- Room Type: ${it.roomType} --- Price: ${it.price} --- Room Number: ${it.roomNumber}")
+                            }
                         }
                         2 -> {
                             println("In danh sách khách hàng:")
                             for(it in controller.showClientList()){
                                 println("ID: ${it.idCard} --- Name: ${it.name} --- Address: ${it.address} --- Phone Number: ${it.phoneNumber} --- Email: ${it.email} --- Note: ${it.note}")
                             }
+
+                            println("Chọn cách sắp xếp khách hàng:")
+                            println("1. Theo tên khách hàng.")
+                            println("2. Theo ID khách hàng.")
+                            println("3. Theo địa chỉ khách hàng.")
+                            controller.sortClientList(scanner.nextInt())
+
+                            for(it in controller.showClientList()){
+                                println("ID: ${it.idCard} --- Name: ${it.name} --- Address: ${it.address} --- Phone Number: ${it.phoneNumber} --- Email: ${it.email} --- Note: ${it.note}")
+                            }
                         }
                         3 -> {
                             println("In danh sách dịch vụ:")
+                            for(it in controller.showServiceList()){
+                                println("ID: ${it.id} --- Name: ${it.name} --- Price: ${it.price}")
+                            }
+
+                            println("Chọn cách sắp xếp dịch vụ:")
+                            println("1. Theo tên dịch vụ.")
+                            println("2. Theo ID dịch vụ.")
+                            println("3. Theo giá dịch vụ.")
+                            controller.sortServiceList(scanner.nextInt())
                             for(it in controller.showServiceList()){
                                 println("ID: ${it.id} --- Name: ${it.name} --- Price: ${it.price}")
                             }
