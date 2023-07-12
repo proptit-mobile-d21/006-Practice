@@ -7,6 +7,8 @@ import model.Service
 import utils.lcConsole.*
 
 class RentMenu(root: Menu) : Menu("Đặt phòng", root, root.scanner) {
+    override val description: String = "Điền thông tin vào hóa đơn sau"
+
     private var client: Client? = null
     private var room: Room? = null
     private val listService: MutableList<Service> = mutableListOf()
@@ -55,9 +57,9 @@ class RentMenu(root: Menu) : Menu("Đặt phòng", root, root.scanner) {
             clientPicker.tableFilter = {
                 it.name.contains(name)
             }
-            Display.switchTo(clientPicker)
+            display(clientPicker)
         }
-        Display.switchTo(clientNameInput)
+        display(clientNameInput)
     }
 
     private fun inputRoom() {

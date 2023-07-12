@@ -8,7 +8,7 @@ open class Dialog(parent: Page, val message: String, val callback: (input: Strin
     }
 
     override fun execute(input: String) {
-        Display.back()
+        close()
         callback(input)
     }
 }

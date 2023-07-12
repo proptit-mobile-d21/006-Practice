@@ -7,6 +7,8 @@ open class Menu(title: String, root: Page?, scanner: Scanner): Page(title, root,
 
     private val options: MutableList<Option> = mutableListOf()
 
+    override val inputTitle: String = "Nhập lựa chọn"
+
     fun add(option: Option) {
         options.add(option)
     }

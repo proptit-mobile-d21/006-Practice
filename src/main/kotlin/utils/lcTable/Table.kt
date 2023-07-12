@@ -2,7 +2,7 @@ package utils.lcTable
 
 import kotlin.math.max
 
-class Table(val header: Collection<String>) {
+class Table(private val header: Collection<String>) {
     private val rows: MutableList<Collection<Any?>> = mutableListOf()
     private val pads: MutableList<Int> = mutableListOf()
 

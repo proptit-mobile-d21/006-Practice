@@ -10,8 +10,8 @@ abstract class Page(val title: String, val root: Page?, val scanner: Scanner) {
     open val inputTitle: String = "Nhập"
     open val description: String = ""
 
-    protected var header: String
-    protected var line: String
+    private var header: String
+    private var line: String
 
     init {
         header = title
@@ -33,4 +33,12 @@ abstract class Page(val title: String, val root: Page?, val scanner: Scanner) {
     }
 
     abstract fun execute(input: String)
+
+    fun display(page: Page) {
+        Display.switchTo(page)
+    }
+
+    fun close() {
+        Display.back()
+    }
 }

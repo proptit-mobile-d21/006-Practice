@@ -12,6 +12,8 @@ class TablePicker<T>(
 
     private lateinit var table : Table
 
+    override val inputTitle: String = "Nhập ID"
+
     var tableFilter: (T)->Boolean = {true}
         set(value) {
             field = value
@@ -27,7 +29,7 @@ class TablePicker<T>(
     }
 
     override fun execute(input: String) {
-        Display.back()
+        close()
         callback.invoke(list.getObject{objectFilter(it, input)})
     }
 }
