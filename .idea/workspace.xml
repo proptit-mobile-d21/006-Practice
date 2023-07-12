@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8598955d-f7df-4908-87bc-01101269ef81" name="Changes" comment="Basic print list and set up menu">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/view/menu/SortMenu.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HotelManager/controller/Manager$Field.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HotelManager/controller/Manager$Field.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HotelManager/controller/Manager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HotelManager/controller/Manager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HotelManager/view/menu/ListMenu$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HotelManager/view/menu/ListMenu$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HotelManager/view/menu/ListMenu$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HotelManager/view/menu/ListMenu$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HotelManager/view/menu/ListMenu$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HotelManager/view/menu/ListMenu$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HotelManager/view/menu/ListMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HotelManager/view/menu/ListMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/controller/Manager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/controller/Manager.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/view/menu/ListMenu.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/view/menu/ListMenu.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/view/menu/MainMenu.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/view/menu/MainMenu.kt" afterDir="false" />
-    </list>
+    <list default="true" id="8598955d-f7df-4908-87bc-01101269ef81" name="Changes" comment="Add sort function" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -112,7 +100,7 @@
       <workItem from="1688979767236" duration="1890000" />
       <workItem from="1689002425035" duration="1274000" />
       <workItem from="1689081470059" duration="14758000" />
-      <workItem from="1689127830692" duration="18277000" />
+      <workItem from="1689127830692" duration="18635000" />
     </task>
     <task id="LOCAL-00001" summary="set up project">
       <created>1688661090051</created>
@@ -151,7 +139,15 @@
       <option name="project" value="LOCAL" />
       <updated>1689137800993</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Add sort function">
+      <option name="closed" value="true" />
+      <created>1689155029705</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1689155029705</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -171,7 +167,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="set up project" />
     <MESSAGE value="Basic print list and set up menu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Basic print list and set up menu" />
+    <MESSAGE value="Add sort function" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add sort function" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
