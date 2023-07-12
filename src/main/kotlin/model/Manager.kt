@@ -10,7 +10,8 @@ enum class TypeOfList(val inputCode : Int, val description : String){
     ROOM(1, "Danh sach phong"),
     CLIENT(2, "Danh sách khach hang"),
     SERVICE(3, "Danh sach dich vu"),
-    BOOKING(4, "Danh sach dat phong")
+    BOOKING(4, "Danh sach dat phong"),
+    MENU(0, "Tro ve menu")
 }
 
 enum class TypeOfRoomSort(val inputCode: Int, val description: String){
@@ -263,7 +264,7 @@ object Manager {
         listOfRoom[index] = filterRoom
     }
 
-    fun editClientListById(choice : Int, id : Int, context : String){
+    fun editClientListById(choice : Int, id : String, context : String){
         val index = listOfClient.indexOfFirst{
             it.idCard.equals(id)
         }
