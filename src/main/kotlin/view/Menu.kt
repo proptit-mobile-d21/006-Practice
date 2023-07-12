@@ -1,13 +1,14 @@
 package view
 
+import data.AllDataForExam
+import model.Manager
 import java.util.*
-
 
 /*
 * @author: Vo Huu Tuan
 * @since:  06/07/2023 23:22
 * @github:  https://github.com/hidenobi
-* @update: 
+* @update:
 *
 * */
 
@@ -15,6 +16,7 @@ import java.util.*
 
 class Menu {
     private val scanner = Scanner(System.`in`)
+    private val manager = Manager()
     fun run() {
         while (true) {
             println("Menu")
@@ -24,11 +26,12 @@ class Menu {
             when (scanner.nextInt()) {
                 1 -> {
 //                    TODO: print list object
-
+                    manager.printList()
                 }
 
                 2 -> {
 //                    TODO: search and update data
+                    manager.finding()
                 }
 
                 3 -> {
@@ -45,4 +48,5 @@ class Menu {
             }
         }
     }
+
 }
