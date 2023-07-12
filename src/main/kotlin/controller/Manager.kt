@@ -10,15 +10,19 @@ object Manager {
     private var rooms = mutableListOf<Room>()
     private var clients = mutableListOf<Client>()
     private var services = mutableListOf<Service>()
-    private val roomFields = listOf<Field>(Field.ID, Field.TYPE, Field.PRICE, Field.ROOM_NUMBER, Field.NOTE)
-    private val clientFields =
+    val roomFields = listOf<Field>(Field.ID, Field.TYPE, Field.PRICE, Field.ROOM_NUMBER, Field.NOTE)
+    val clientFields =
         listOf<Field>(Field.ID, Field.NAME, Field.ADDRESS, Field.PHONE_NUMBER, Field.EMAIL, Field.NOTE)
-    private val serviceFields = listOf<Field>(Field.ID, Field.NAME, Field.PRICE)
+    val serviceFields = listOf<Field>(Field.ID, Field.NAME, Field.PRICE)
 
     init {
         rooms = AllDataForExam.roomList.toMutableList()
         clients = AllDataForExam.clientList.toMutableList()
         services = AllDataForExam.serviceList.toMutableList()
+    }
+
+    enum class Type {
+        ROOM, CLIENT, SERVICE
     }
 
     enum class Field(private val keyword: String) {
@@ -82,5 +86,41 @@ object Manager {
             )
         }
         table.print()
+    }
+
+    private fun <T, R : Comparable<R>> sortList(list: MutableList<T>, selector: (T) -> R?) {
+        list.sortBy { selector(it) }
+    }
+
+    fun sortRoomList(field: Field) {
+        when (field) {
+            Field.ID -> sortList(rooms) { it.id }
+            Field.TYPE -> sortList(rooms) { it.roomType }
+            Field.PRICE -> sortList(rooms) { it.price }
+            Field.ROOM_NUMBER -> sortList(rooms) { it.roomNumber }
+            Field.NOTE -> sortList(rooms) { it.note }
+            else -> null
+        }
+    }
+
+    fun sortClientList(field: Field) {
+        when (field) {
+            Field.ID -> sortList(clients) { it.idCard }
+            Field.NAME -> sortList(clients) { it.name }
+            Field.ADDRESS -> sortList(clients) { it.address }
+            Field.PHONE_NUMBER -> sortList(clients) { it.phoneNumber }
+            Field.EMAIL -> sortList(clients) { it.email }
+            Field.NOTE -> sortList(clients) { it.note }
+            else -> null
+        }
+    }
+
+    fun sortServiceList(field: Field) {
+        when (field) {
+            Field.ID -> sortList(services) { it.id }
+            Field.NAME -> sortList(services) { it.name }
+            Field.ADDRESS -> sortList(services) { it.price }
+            else -> null
+        }
     }
 }

@@ -9,6 +9,6 @@ class MainMenu(parent: Menu?, title: String) : Menu(parent, title) {
         val orderMenu = OrderMenu(this,"Đặt phòng")
         addOption(Option(listMenu.title) { listMenu.print() })
         addOption(Option(searchMenu.title) { })
-        addOption(Option(searchMenu.title) { })
+        addOption(Option(orderMenu.title) { })
     }
 }
