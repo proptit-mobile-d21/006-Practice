@@ -1,6 +1,6 @@
-import view.Menu
+import view.View
 
 fun main() {
-    val menu = Menu()
-    menu.run()
+    val view = View()
+    view.run()
 }
