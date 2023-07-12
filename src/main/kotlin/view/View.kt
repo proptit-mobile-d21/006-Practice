@@ -6,7 +6,12 @@ class View {
     fun run() {
         val mainMenu = MainMenu(null, "Menu")
         while (true) {
-            mainMenu.print()
+            try {
+                mainMenu.print()
+            }
+            catch (e:Exception){
+                println("Lỗi: ${e.message}")
+            }
         }
     }
 }

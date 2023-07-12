@@ -1,6 +1,8 @@
 package view.menu
 
+import controller.IOException
 import view.Option
+import java.lang.Exception
 import java.util.*
 
 
@@ -32,13 +34,18 @@ open class Menu(val parent: Menu?, val title: String) {
 
     fun navigate() {
         print("Nhập lựa chọn: ")
-        val choice = scanner.nextInt()
-        when (choice) {
+        val input = scanner.nextLine()
+        when (val choice = input.toInt()) {
+            0 -> {
+                parent?.print() ?: throw IOException("Không thể quay lại")
+            }
+
             in 1..options.size -> {
                 options[choice - 1].function.invoke()
             }
 
             else -> {
+                throw IOException("Không hợp lệ")
             }
         }
     }
