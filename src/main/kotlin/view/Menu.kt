@@ -2,6 +2,7 @@ package view
 
 import controller.Controller
 import controller.RoomManagement
+import model.Service
 import other.Util
 import java.util.*
 
@@ -185,6 +186,7 @@ class Menu {
 //                    TODO: booking
                     println("Nhập tên khách hàng:")
                     val name = scanner.next()
+                    val idClient : String
                     if(controller.searchClient(2, name).isEmpty()){
                         println("Nhập địa chỉ khách hàng mới:")
                         scanner.nextLine()
@@ -194,8 +196,36 @@ class Menu {
                         println("Nhập email:")
                         val email = scanner.next()
                         controller.addNewClient(name, address, phoneNumber, email, null)
+                        idClient = controller.showClientList().size.toString()
+                        util.displayList(controller.searchClient(2, name), 2)
+
+                    }else{
+                        util.displayList(controller.searchClient(2, name), 2)
+                        println("Nhập id khách hàng:")
+                        idClient = scanner.next()
                     }
-                    util.displayList(controller.searchClient(2, name), 2)
+
+                    util.displayList(controller.showRoomList(), 1)
+                    println("Nhập id phòng bạn muốn book:")
+                    val idRoom = scanner.nextInt()
+
+                    util.displayList(controller.showServiceList(), 3)
+                    val bookingServices = mutableListOf<Service>()
+                    println("Chọn các dịch vụ muốn book: (Bấm 0 để thôi chọn)")
+                    while (true){
+                        val opt = scanner.nextInt()
+                        if (opt == 0) break
+                        bookingServices.add(controller.showServiceList().elementAt(opt-1))
+                    }
+                    controller.addNewBooking(idClient, idRoom, bookingServices)
+
+                    println("Thông tin hoá đơn bạn vừa book:")
+                    for(it in controller.showBookingList()){
+                        println("ID: ${it.id} --- Room ID: ${it.idRoom}")
+                        println("Danh sách dịch vụ: ")
+                        util.displayList(it.listService, 3)
+                    }
+
                 }
 
                 0 -> {

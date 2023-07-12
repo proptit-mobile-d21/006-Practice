@@ -10,13 +10,17 @@ class Controller(private val roomManagement: RoomManagement) {
     private lateinit var roomList: MutableList<Room>
     private lateinit var clientList: MutableList<Client>
     private lateinit var serviceList: MutableList<Service>
-    private lateinit var bookingList: MutableList<Booking>
+    val bookingList = mutableListOf<Booking>()
 
 
     fun init(){
         roomList = roomManagement.initList(AllDataForExam.roomList).toMutableList()
         clientList = roomManagement.initList(AllDataForExam.clientList).toMutableList()
         serviceList = roomManagement.initList(AllDataForExam.serviceList).toMutableList()
+    }
+
+    fun showBookingList(): List<Booking>{
+        return roomManagement.showList(bookingList)
     }
 
     fun showRoomList(): List<Room>{
@@ -140,5 +144,10 @@ class Controller(private val roomManagement: RoomManagement) {
     fun addNewClient(name: String, address: String, phoneNumber: String, email: String?, note: String?){
         val idCard = (clientList.size + 1).toString()
         clientList.add(Client(idCard, name, address, phoneNumber, email, note))
+    }
+
+    fun addNewBooking(idClient: String, idRoom: Int, listService: MutableList<Service>){
+        val id = bookingList.size + 1
+        bookingList.add(Booking(id, idClient, idRoom, listService, null, null))
     }
 }
