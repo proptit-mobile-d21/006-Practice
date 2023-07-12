@@ -149,7 +149,7 @@ class Menu {
                         printPropertyOfService()
                         choiceSearch = scanner.nextInt() // luu property cua room
                         print("-> Nhap noi dung can tim kiem: ")
-                        var context = scanner.next()
+                        val context = scanner.next()
                         Manager.searchInServiceList(choiceSearch, context)
                     }
                 }
@@ -166,9 +166,9 @@ class Menu {
                         printPropertyOfRoom()
                         choiceSearch = scanner.nextInt() // luu property cua room
                         print("Nhap id room can thay doi : ")
-                        var choiceId = scanner.nextInt() // luu id cua room can tim
+                        val choiceId = scanner.nextInt() // luu id cua room can tim
                         print("-> Nhap noi dung thay doi (Neu khong muon thay doi bam 0 de tro ve menu): ")
-                        var context = scanner.next()
+                        val context = scanner.next()
                         if(context.equals("0")) {
                             choiceMenu = 0
                         }
@@ -183,9 +183,9 @@ class Menu {
                         printPropertyOfClient()
                         choiceSearch = scanner.nextInt() // luu property cua room
                         print("Nhap id client can thay doi : ")
-                        var choiceId = scanner.nextInt() // luu id cua room can tim
+                        val choiceId = scanner.nextInt() // luu id cua room can tim
                         print("-> Nhap noi dung thay doi (Neu khong muon thay doi bam 0 de tro ve menu): ")
-                        var context = scanner.next()
+                        val context = scanner.next()
                         if(context.equals("0")) {
                             choiceMenu = 0
                         }
@@ -200,9 +200,9 @@ class Menu {
                         printPropertyOfService()
                         choiceSearch = scanner.nextInt() // luu property cua room
                         print("Nhap id service can thay doi : ")
-                        var choiceId = scanner.nextInt() // luu id cua room can tim
+                        val choiceId = scanner.nextInt() // luu id cua room can tim
                         print("-> Nhap noi dung thay doi (Neu khong muon thay doi bam 0 de tro ve menu): ")
-                        var context = scanner.next()
+                        val context = scanner.next()
                         if(context.equals("0")) {
                             choiceMenu = 0
                         }
@@ -236,10 +236,12 @@ class Menu {
 
             0 -> {
 //                    TODO: back to menu
-                println("Menu")
+                println("==============Menu==============")
                 println("1. Danh sách các đối tượng")
-                println("2. Tìm kiếm và thay đổi thông tin đối tượng")
-                println("3. Đặt phòng")
+                println("2. Tìm kiếm đối tượng")
+                println("3. Thay đổi thông tin đối tượng")
+                println("4. Đặt phòng")
+                println("================================")
                 //choiceMenu = scanner.nextInt()
             }
 
