@@ -2,11 +2,15 @@ package model
 
 import data.AllDataForExam
 import other.RoomType
+import java.time.LocalDate
+import java.time.ZoneId
+import java.util.*
 
 enum class TypeOfList(val inputCode : Int, val description : String){
     ROOM(1, "Danh sach phong"),
     CLIENT(2, "Danh sách khach hang"),
-    SERVICE(3, "Danh sach dich vu")
+    SERVICE(3, "Danh sach dich vu"),
+    BOOKING(4, "Danh sach dat phong")
 }
 
 enum class TypeOfRoomSort(val inputCode: Int, val description: String){
@@ -50,6 +54,7 @@ object Manager {
     private var listOfRoom = mutableListOf<Room>()
     private var listOfClient = mutableListOf<Client>()
     private var listOfService = mutableListOf<Service>()
+    private var listOfBooking = mutableListOf<Booking>()
 
     init {
         listOfRoom = AllDataForExam.roomList.toMutableList()
@@ -67,14 +72,17 @@ object Manager {
     fun displayList(choice: Int, description: String?){
         print("==============" + description + "==============\n" )
         when(choice){
-            model.TypeOfList.ROOM.inputCode -> {
+            TypeOfList.ROOM.inputCode -> {
                 displaySpecificList(listOfRoom)
             }
-            model.TypeOfList.CLIENT.inputCode -> {
+            TypeOfList.CLIENT.inputCode -> {
                 displaySpecificList(listOfClient)
             }
-            model.TypeOfList.SERVICE.inputCode -> {
+            TypeOfList.SERVICE.inputCode -> {
                 displaySpecificList(listOfService)
+            }
+            TypeOfList.BOOKING.inputCode -> {
+                displaySpecificList(listOfBooking)
             }
         }
     }
@@ -318,6 +326,11 @@ object Manager {
     fun addNewClient(name : String, address : String, phoneNumber: String, email : String?, note : String?){
         val newClient = Client("ID" + (listOfClient.size + 1).toString().padStart(3, '0'), name, address, phoneNumber, email, note)
         listOfClient.add(newClient)
+    }
+
+    fun addNewBooking(idClient: String, idRoom: Int, listOfService: MutableList<Service>, checkIn: LocalDate){
+        val newBooking = Booking(listOfBooking.size + 1, idClient, idRoom, listOfService, Date.from(checkIn.atStartOfDay(ZoneId.systemDefault()).toInstant()))
+        listOfBooking.add(newBooking)
     }
 }
 
