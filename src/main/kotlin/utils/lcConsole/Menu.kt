@@ -11,6 +11,10 @@ open class Menu(title: String, root: Page?, scanner: Scanner): Page(title, root,
         options.add(option)
     }
 
+    fun get(optionNumber: Int) : Option {
+        return options.get(optionNumber-1)
+    }
+
     override fun content() {
         options.forEachIndexed { index, option ->
             println("${index+1}. ${option.context}")

@@ -1,45 +1,26 @@
 package controller
 
 import data.AllDataForExam
-import utils.lcTable.Table
+import model.Client
+import model.Room
+import model.Service
+import utils.lcTable.ListTable
 
 object Manager {
-    private val roomList = AllDataForExam.roomList
-    private val clientList = AllDataForExam.clientList
-    private val serviceList = AllDataForExam.serviceList
 
-    fun getRoomTable() : Table {
-        val table = Table(listOf("ID", "Loại phòng", "Giá", "Số phòng", "Note"))
-        roomList.forEach { table.addRow(listOf(
-            it.id,
-            it.roomType,
-            it.price,
-            it.roomNumber,
-            it.note
-        )) }
-        return table
-    }
+    val roomList: ListTable<Room> = ListTable(
+        AllDataForExam.roomList,
+        listOf("ID", "Loại phòng", "Giá", "Số phòng", "Note")
+    ) { listOf(it.id, it.roomType, it.price, it.roomNumber, it.note) }
 
-    fun getClientTable() : Table {
-        val table = Table(listOf("ID", "Tên", "Địa chỉ", "SĐT", "Email", "Note"))
-        clientList.forEach { table.addRow(listOf(
-            it.idCard,
-            it.name,
-            it.address,
-            it.phoneNumber,
-            it.email,
-            it.note
-        )) }
-        return table
-    }
+    val clientList: ListTable<Client> = ListTable(
+        AllDataForExam.clientList,
+        listOf("ID", "Tên", "Địa chỉ", "SĐT", "Email", "Note")
+    ) { listOf(it.idCard, it.name, it.address, it.phoneNumber, it.email, it.note) }
 
-    fun getServiceTable() : Table {
-        val table = Table(listOf("ID", "Tên dịch vụ", "Giá"))
-        serviceList.forEach { table.addRow(listOf(
-            it.id,
-            it.name,
-            it.price
-        )) }
-        return table
-    }
+    val serviceList: ListTable<Service> = ListTable(
+        AllDataForExam.serviceList,
+        listOf("ID", "Tên dịch vụ", "Giá")
+    ) { listOf(it.id, it.name, it.price) }
+
 }

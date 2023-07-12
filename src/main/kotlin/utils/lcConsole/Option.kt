@@ -1,3 +1,3 @@
 package utils.lcConsole
 
-data class Option(val context:String, val function:()->Unit)
+data class Option(var context:String, val function:()->Unit)

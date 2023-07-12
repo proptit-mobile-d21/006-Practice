@@ -12,7 +12,7 @@ class ListMenu(root: Menu) : Menu("Hiển thị danh sách", root, root.scanner)
     init {
         add(Option("Phòng") {
             Display.switchTo(TableViewer(
-                Manager.getRoomTable(),
+                Manager.roomList.getTable(),
                 "Danh sách Phòng",
                 this,
                 scanner
@@ -20,7 +20,7 @@ class ListMenu(root: Menu) : Menu("Hiển thị danh sách", root, root.scanner)
         })
         add(Option("Khách hàng") {
             Display.switchTo(TableViewer(
-                Manager.getClientTable(),
+                Manager.clientList.getTable(),
                 "Danh sách Khách hàng",
                 this,
                 scanner
@@ -28,7 +28,7 @@ class ListMenu(root: Menu) : Menu("Hiển thị danh sách", root, root.scanner)
         })
         add(Option("Dịch vụ") {
             Display.switchTo(TableViewer(
-                Manager.getServiceTable(),
+                Manager.serviceList.getTable(),
                 "Danh sách Dịch vụ",
                 this,
                 scanner
