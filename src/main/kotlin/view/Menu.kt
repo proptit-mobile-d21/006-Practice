@@ -2,6 +2,7 @@ package view
 
 import controller.Controller
 import controller.RoomManagement
+import other.Util
 import java.util.*
 
 
@@ -19,6 +20,7 @@ class Menu {
     private val scanner = Scanner(System.`in`)
     private val roomManagement = RoomManagement()
     private val controller = Controller(roomManagement)
+    private val util = Util()
 
     fun run() {
         controller.init()
@@ -37,9 +39,7 @@ class Menu {
                     when(scanner.nextInt()){
                         1 -> {
                             println("In danh sách phòng:")
-                            for(it in controller.showRoomList()){
-                                println("ID: ${it.id} --- Room Type: ${it.roomType} --- Price: ${it.price} --- Room Number: ${it.roomNumber}")
-                            }
+                            util.displayList(controller.showRoomList(), 1)
 
                             println("Chọn cách sắp xếp:")
                             println("1. Theo số phòng.")
@@ -47,15 +47,12 @@ class Menu {
                             println("3. Theo giá phòng.")
                             controller.sortRoomList(scanner.nextInt())
 
-                            for(it in controller.showRoomList()){
-                                println("ID: ${it.id} --- Room Type: ${it.roomType} --- Price: ${it.price} --- Room Number: ${it.roomNumber}")
-                            }
+                            util.displayList(controller.showRoomList(), 1)
                         }
                         2 -> {
                             println("In danh sách khách hàng:")
-                            for(it in controller.showClientList()){
-                                println("ID: ${it.idCard} --- Name: ${it.name} --- Address: ${it.address} --- Phone Number: ${it.phoneNumber} --- Email: ${it.email} --- Note: ${it.note}")
-                            }
+                            util.displayList(controller.showClientList(), 2)
+
 
                             println("Chọn cách sắp xếp khách hàng:")
                             println("1. Theo tên khách hàng.")
@@ -63,24 +60,18 @@ class Menu {
                             println("3. Theo địa chỉ khách hàng.")
                             controller.sortClientList(scanner.nextInt())
 
-                            for(it in controller.showClientList()){
-                                println("ID: ${it.idCard} --- Name: ${it.name} --- Address: ${it.address} --- Phone Number: ${it.phoneNumber} --- Email: ${it.email} --- Note: ${it.note}")
-                            }
+                            util.displayList(controller.showClientList(), 2)
                         }
                         3 -> {
                             println("In danh sách dịch vụ:")
-                            for(it in controller.showServiceList()){
-                                println("ID: ${it.id} --- Name: ${it.name} --- Price: ${it.price}")
-                            }
+                            util.displayList(controller.showServiceList(), 3)
 
                             println("Chọn cách sắp xếp dịch vụ:")
                             println("1. Theo tên dịch vụ.")
                             println("2. Theo ID dịch vụ.")
                             println("3. Theo giá dịch vụ.")
                             controller.sortServiceList(scanner.nextInt())
-                            for(it in controller.showServiceList()){
-                                println("ID: ${it.id} --- Name: ${it.name} --- Price: ${it.price}")
-                            }
+                            util.displayList(controller.showServiceList(), 3)
                         }
                         else -> {
                             return
@@ -91,10 +82,120 @@ class Menu {
 
                 2 -> {
 //                    TODO: search and update data
+                    println("Chọn loại danh sách:")
+                    println("1. Danh sách phòng")
+                    println("2. Danh sách khác hàng")
+                    println("3. Danh sách dịch vụ")
+
+                    when(scanner.nextInt()) {
+                         1 -> {
+                            util.displayList(controller.showRoomList(), 1)
+                            println("Bạn muốn tìm theo thuộc tính nào?")
+                            println("1. ID")
+                            println("2. Loại phòng.")
+                            println("3. Giá phòng.")
+                            println("4. Số phòng.")
+
+                            when(scanner.nextInt()){
+                                1 -> {
+                                    println("Nhập ID cần tìm:")
+                                    util.displayList(controller.searchRoom(1, scanner.next()), 1)
+                                }
+
+                                2 -> {
+                                    println("Nhập loại phòng cần tìm: (VIP_ROOM | SINGLE_ROOM)")
+                                    util.displayList(controller.searchRoom(2, scanner.next()), 1)
+                                }
+
+                                3 -> {
+                                    println("Nhập giá phòng cần tìm:")
+                                    util.displayList(controller.searchRoom(3, scanner.next()), 1)
+                                }
+
+                                4 -> {
+                                    println("Nhập số phòng cần tìm:")
+                                    util.displayList(controller.searchRoom(4, scanner.next()), 1)
+                                }
+                            }
+
+                        }
+                        2 -> {
+                            util.displayList(controller.showClientList(), 2)
+                            println("Bạn muốn tìm theo thuộc tính nào?")
+                            println("1. ID")
+                            println("2. Tên.")
+                            println("3. Địa chỉ.")
+                            println("4. Số điện thoại.")
+                            println("5. Email.")
+
+                            when(scanner.nextInt()){
+                                1 -> {
+                                    println("Nhập ID cần tìm:")
+                                    util.displayList(controller.searchClient(1, scanner.next()), 2)
+                                }
+
+                                2 -> {
+                                    println("Nhập tên cần tìm")
+                                    util.displayList(controller.searchClient(2, scanner.next()), 2)
+                                }
+
+                                3 -> {
+                                    println("Nhập địa chỉ cần tìm:")
+                                    util.displayList(controller.searchClient(3, scanner.next()), 2)
+                                }
+
+                                4 -> {
+                                    println("Nhập số điện thoại cần tìm:")
+                                    util.displayList(controller.searchClient(4, scanner.next()), 2)
+                                }
+                                5 -> {
+                                    println("Nhập email cần tìm:")
+                                    util.displayList(controller.searchClient(5, scanner.next()), 2)
+                                }
+                            }
+                        }
+                        3 -> {
+                            util.displayList(controller.showServiceList(), 3)
+                            println("Bạn muốn tìm theo thuộc tính nào?")
+                            println("1. ID")
+                            println("2. Tên.")
+                            println("3. Giá.")
+
+                            when(scanner.nextInt()){
+                                1 -> {
+                                    println("Nhập ID cần tìm:")
+                                    util.displayList(controller.searchService(1, scanner.next()), 2)
+                                }
+
+                                2 -> {
+                                    println("Nhập tên cần tìm")
+                                    util.displayList(controller.searchService(2, scanner.next()), 2)
+                                }
+
+                                3 -> {
+                                    println("Nhập giá cần tìm:")
+                                    util.displayList(controller.searchService(3, scanner.next()), 2)
+                                }
+                            }
+                        }
+                    }
                 }
 
                 3 -> {
 //                    TODO: booking
+                    println("Nhập tên khách hàng:")
+                    val name = scanner.next()
+                    if(controller.searchClient(2, name).isEmpty()){
+                        println("Nhập địa chỉ khách hàng mới:")
+                        scanner.nextLine()
+                        val address = scanner.nextLine()
+                        println("Nhập số điện thoại:")
+                        val phoneNumber = scanner.next()
+                        println("Nhập email:")
+                        val email = scanner.next()
+                        controller.addNewClient(name, address, phoneNumber, email, null)
+                    }
+                    util.displayList(controller.searchClient(2, name), 2)
                 }
 
                 0 -> {
