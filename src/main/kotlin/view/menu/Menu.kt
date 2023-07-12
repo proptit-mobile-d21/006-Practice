@@ -18,7 +18,8 @@ import java.util.*
 
 open class Menu(val parent: Menu?, val title: String) {
     private val scanner = Scanner(System.`in`)
-    private val options = mutableListOf<Option>()
+    private val options =
+        mutableListOf<Option>(Option("Quay lại") { parent?.print() ?: throw IOException("Không thể quay lại") })
 
     fun addOption(option: Option) {
         options.add(option)
@@ -27,21 +28,17 @@ open class Menu(val parent: Menu?, val title: String) {
     fun print() {
         println("---$title---")
         options.forEachIndexed { index, option ->
-            println("${index + 1}. ${option.title}")
+            println("${index}. ${option.title}")
         }
         navigate()
     }
 
-    fun navigate() {
+    private fun navigate() {
         print("Nhập lựa chọn: ")
         val input = scanner.nextLine()
         when (val choice = input.toInt()) {
-            0 -> {
-                parent?.print() ?: throw IOException("Không thể quay lại")
-            }
-
-            in 1..options.size -> {
-                options[choice - 1].function.invoke()
+            in 0 until options.size -> {
+                options[choice].function.invoke()
             }
 
             else -> {
