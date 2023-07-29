@@ -12,10 +12,10 @@ package model
 
 // This file is not allowed to be edited
 data class Client(
-    val idCard: String,
-    val name: String,
-    val address: String,
-    val phoneNumber: String,
-    val email: String?,
-    val note: String?
+    var idCard: String,
+    var name: String,
+    var address: String,
+    var phoneNumber: String,
+    var email: String?,
+    var note: String?
 )
