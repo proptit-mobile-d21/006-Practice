@@ -13,4 +13,4 @@ import other.RoomType
 
 
 // This file is not allowed to be edited
-data class Room(val id: Int, val roomType: RoomType, val price: Long, val roomNumber: String, val note: String? = null)
+data class Room(var id: Int, var roomType: RoomType, var price: Long, var roomNumber: String, var note: String? = null)
