@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8598955d-f7df-4908-87bc-01101269ef81" name="Changes" comment="set up project">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="8598955d-f7df-4908-87bc-01101269ef81" name="Changes" comment="unfinished" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -107,7 +104,21 @@
       <option name="project" value="LOCAL" />
       <updated>1688694423343</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="unfinished">
+      <created>1690711799590</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1690711799590</updated>
+    </task>
+    <task id="LOCAL-00005" summary="unfinished">
+      <created>1690711859344</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1690711859344</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -123,7 +134,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="set up project" />
-    <option name="LAST_COMMIT_MESSAGE" value="set up project" />
+    <MESSAGE value="unfinished" />
+    <option name="LAST_COMMIT_MESSAGE" value="unfinished" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/006_practice$MainKt.ic" NAME="MainKt Coverage Results" MODIFIED="1689149963678" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
