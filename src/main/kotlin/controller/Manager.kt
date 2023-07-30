@@ -99,7 +99,7 @@ object Manager {
             Field.PRICE -> sortList(rooms) { it.price }
             Field.ROOM_NUMBER -> sortList(rooms) { it.roomNumber }
             Field.NOTE -> sortList(rooms) { it.note }
-            else -> { }
+            else -> {}
         }
     }
 
@@ -111,7 +111,7 @@ object Manager {
             Field.PHONE_NUMBER -> sortList(clients) { it.phoneNumber }
             Field.EMAIL -> sortList(clients) { it.email }
             Field.NOTE -> sortList(clients) { it.note }
-            else -> { }
+            else -> {}
         }
     }
 
@@ -120,7 +120,7 @@ object Manager {
             Field.ID -> sortList(services) { it.id }
             Field.NAME -> sortList(services) { it.name }
             Field.ADDRESS -> sortList(services) { it.price }
-            else -> { }
+            else -> {}
         }
     }
 }
