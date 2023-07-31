@@ -1,6 +1,8 @@
 package view.menu
 
-import controller.Manager
+import controller.ClientController
+import controller.RoomController
+import controller.ServiceController
 import model.Client
 import model.Room
 import model.Service
@@ -12,6 +14,10 @@ class RentMenu(root: Menu) : Menu("Đặt phòng", root, root.scanner) {
     private var client: Client? = null
     private var room: Room? = null
     private val listService: MutableList<Service> = mutableListOf()
+
+    private val clientController = ClientController()
+    private val roomController = RoomController()
+    private val serviceController = ServiceController()
 
     init {
         add(Option(clientOption()) {inputClient()})
@@ -44,7 +50,7 @@ class RentMenu(root: Menu) : Menu("Đặt phòng", root, root.scanner) {
 
     private fun inputClient() {
         val clientPicker = TablePicker<Client>(
-            Manager.clientList,
+            clientController.list,
             "Chọn Khách hàng",
             this,
             { client, keyword -> client.idCard.lowercase() == keyword.trim().lowercase() },
@@ -53,7 +59,7 @@ class RentMenu(root: Menu) : Menu("Đặt phòng", root, root.scanner) {
                 this.get(1).context = clientOption()
             }
         )
-        val clientNameInput = Dialog(this, "Nhập tên khách hàng") {name ->
+        val clientNameInput = Dialog(this, "Nhập tên khách hàng") { name ->
             clientPicker.tableFilter = {
                 it.name.contains(name)
             }
@@ -64,7 +70,7 @@ class RentMenu(root: Menu) : Menu("Đặt phòng", root, root.scanner) {
 
     private fun inputRoom() {
         val roomPicker = TablePicker<Room>(
-            Manager.roomList,
+            roomController.list,
             "Chọn Phòng",
             this,
             { room, keyword -> room.id.toString() == keyword.trim()},
@@ -78,7 +84,7 @@ class RentMenu(root: Menu) : Menu("Đặt phòng", root, root.scanner) {
 
     private fun inputService() {
         val servicePicker = TablePicker<Service>(
-            Manager.serviceList,
+            serviceController.list,
             "Chọn Dịch vụ",
             this,
             { service, keyword -> service.id.toString() == keyword.trim() },

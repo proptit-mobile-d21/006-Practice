@@ -5,16 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8598955d-f7df-4908-87bc-01101269ef81" name="Changes" comment="Modify LC libs and finish RentMenu">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/controller/ClientController.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/controller/RoomController.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/controller/ServiceController.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/utils/lcConsole/Dialog.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/utils/lcConsole/Dialog.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/utils/lcConsole/Menu.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/utils/lcConsole/Menu.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/utils/lcConsole/Option.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/utils/lcConsole/Option.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/utils/lcConsole/Page.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/utils/lcConsole/Page.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/utils/lcConsole/TablePicker.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/utils/lcConsole/TablePicker.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/utils/lcTable/ListTable.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/utils/lcTable/ListTable.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/utils/lcTable/Table.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/utils/lcTable/Table.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/controller/Manager.kt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/view/menu/ListMenu.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/view/menu/ListMenu.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/view/menu/MainMenu.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/view/menu/MainMenu.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/view/menu/RentMenu.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/view/menu/RentMenu.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -70,7 +66,8 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Programming/Android/AndroidCourse/Git/006-practice&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Programming/Java/lcLib&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.spelling&quot;
   }
